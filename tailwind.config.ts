@@ -11,6 +11,9 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				custom: ["var(--font-custom)", "sans-serif"],
+			},
 			borderRadius: {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
