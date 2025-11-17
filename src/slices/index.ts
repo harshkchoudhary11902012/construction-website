@@ -4,4 +4,5 @@ import dynamic from "next/dynamic";
 
 export const components = {
   rich_text: dynamic(() => import("./RichText")),
+  landing_page: dynamic(() => import("./LandingPage")),
 };

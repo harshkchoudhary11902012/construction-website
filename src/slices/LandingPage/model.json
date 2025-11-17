@@ -1,0 +1,37 @@
+{
+  "id": "landing_page",
+  "type": "SharedSlice",
+  "name": "LandingPage",
+  "description": "Landing page with sparkles animation background",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default landing page variation",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Enter your main title",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "Enter a subtitle or description",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": ""
+    }
+  ]
+}
