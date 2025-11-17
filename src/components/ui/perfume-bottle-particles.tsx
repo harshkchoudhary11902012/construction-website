@@ -17,18 +17,24 @@ type PerfumeBottleParticlesProps = {
 const getBottleShape = (
 	width: number,
 	height: number,
-	position: "left" | "right" | "top" | "bottom",
-	isMobile: boolean
+	position: "left" | "right" | "top" | "bottom" | "center",
+	isMobile: boolean,
+	isSmallScreen: boolean = false
 ) => {
 	const centerX = width / 2;
 	const centerY = height / 2;
 	const bottleWidth = Math.min(width * 0.12, 180);
-	const bottleHeight = Math.min(height * 0.55, 350);
+	// For small screens (<500px), make bottle taller
+	const bottleHeight = isSmallScreen ? Math.min(height * 0.75, 500) : Math.min(height * 0.55, 350);
 
 	let bottleCenterX: number;
 	let bottleCenterY: number;
 
-	if (isMobile) {
+	if (position === "center") {
+		// Small screen: centered bottle behind text
+		bottleCenterX = centerX;
+		bottleCenterY = centerY;
+	} else if (isMobile) {
 		// Mobile: top and bottom positioning
 		bottleCenterX = centerX;
 		bottleCenterY =
@@ -111,6 +117,7 @@ export const PerfumeBottleParticles = (props: PerfumeBottleParticlesProps) => {
 	const secondBottleShapeRef = useRef<{ x: number; y: number }[]>([]);
 	const animationFrameRef = useRef<number | undefined>(undefined);
 	const isMobileRef = useRef<boolean>(false);
+	const isSmallScreenRef = useRef<boolean>(false);
 	const particleDataRef = useRef<
 		Map<
 			Particle,
@@ -139,18 +146,42 @@ export const PerfumeBottleParticles = (props: PerfumeBottleParticlesProps) => {
 			containerRef.current = container;
 			const width = container.canvas.size?.width || window.innerWidth;
 			const height = container.canvas.size?.height || window.innerHeight;
+			const isSmallScreen = width < 500;
 			const isMobile = width <= 768;
 			isMobileRef.current = isMobile;
+			isSmallScreenRef.current = isSmallScreen;
 
 			// Update bottle positions based on screen size
-			if (isMobile) {
-				// Mobile: top and bottom
-				firstBottleShapeRef.current = getBottleShape(width, height, "top", isMobile);
-				secondBottleShapeRef.current = getBottleShape(width, height, "bottom", isMobile);
+			if (isSmallScreen) {
+				// Very small screen (<500px): one centered bottle
+				firstBottleShapeRef.current = getBottleShape(
+					width,
+					height,
+					"center",
+					isMobile,
+					isSmallScreen
+				);
+				secondBottleShapeRef.current = []; // No second bottle
+			} else if (isMobile) {
+				// Mobile (500-768px): no bottles, all background
+				firstBottleShapeRef.current = [];
+				secondBottleShapeRef.current = [];
 			} else {
-				// Desktop: left and right
-				firstBottleShapeRef.current = getBottleShape(width, height, "left", isMobile);
-				secondBottleShapeRef.current = getBottleShape(width, height, "right", isMobile);
+				// Desktop (>768px): left and right
+				firstBottleShapeRef.current = getBottleShape(
+					width,
+					height,
+					"left",
+					isMobile,
+					isSmallScreen
+				);
+				secondBottleShapeRef.current = getBottleShape(
+					width,
+					height,
+					"right",
+					isMobile,
+					isSmallScreen
+				);
 			}
 
 			controls.start({
@@ -158,22 +189,15 @@ export const PerfumeBottleParticles = (props: PerfumeBottleParticlesProps) => {
 				transition: { duration: 0.5 },
 			});
 
-			// Wait a moment, then start forming the bottles (only on desktop)
-			if (!isMobile) {
-				setTimeout(() => {
-					startFormingBottles(container);
-				}, 1000);
+			// Start forming the bottles immediately (desktop or small screen)
+			if (!isMobile || isSmallScreen) {
+				startFormingBottles(container);
 			}
 		}
 	};
 
 	const startFormingBottles = (container: Container) => {
-		if (
-			!container.particles ||
-			firstBottleShapeRef.current.length === 0 ||
-			secondBottleShapeRef.current.length === 0
-		)
-			return;
+		if (!container.particles || firstBottleShapeRef.current.length === 0) return;
 
 		const firstBottle = firstBottleShapeRef.current;
 		const secondBottle = secondBottleShapeRef.current;
@@ -187,28 +211,47 @@ export const PerfumeBottleParticles = (props: PerfumeBottleParticlesProps) => {
 			}
 		}
 
-		// Check if mobile - if so, all particles stay in background
+		// Check screen size
 		const isMobile = isMobileRef.current;
+		const isSmallScreen = isSmallScreenRef.current;
 
-		// Distribute particles: 25% first bottle, 25% second bottle, 50% background (desktop only)
-		// On mobile, 100% background
-		const firstBottleCount = isMobile ? 0 : Math.floor(particles.length * 0.25);
-		const secondBottleCount = isMobile ? 0 : Math.floor(particles.length * 0.25);
-		// Rest stay in background
+		// Distribute particles based on screen size
+		let firstBottleCount: number;
+		let secondBottleCount: number;
+
+		if (isSmallScreen) {
+			// Very small screen: 50% for centered bottle, 50% background
+			firstBottleCount = Math.floor(particles.length * 0.5);
+			secondBottleCount = 0;
+		} else if (isMobile) {
+			// Mobile (500-768px): 100% background
+			firstBottleCount = 0;
+			secondBottleCount = 0;
+		} else {
+			// Desktop: 25% each bottle, 50% background
+			firstBottleCount = Math.floor(particles.length * 0.25);
+			secondBottleCount = Math.floor(particles.length * 0.25);
+		}
 
 		particles.forEach((particle, index) => {
 			let targetX: number;
 			let targetY: number;
 			let isBackground = false;
 
-			if (!isMobile && index < firstBottleCount) {
-				// Assign to first bottle (desktop only)
+			if (isSmallScreen && index < firstBottleCount) {
+				// Assign to centered bottle (small screen)
 				const targetIndex = index % firstBottle.length;
 				const target = firstBottle[targetIndex];
 				targetX = target.x;
 				targetY = target.y;
-			} else if (!isMobile && index < firstBottleCount + secondBottleCount) {
-				// Assign to second bottle (desktop only)
+			} else if (!isMobile && !isSmallScreen && index < firstBottleCount) {
+				// Assign to first bottle (desktop)
+				const targetIndex = index % firstBottle.length;
+				const target = firstBottle[targetIndex];
+				targetX = target.x;
+				targetY = target.y;
+			} else if (!isMobile && !isSmallScreen && index < firstBottleCount + secondBottleCount) {
+				// Assign to second bottle (desktop)
 				const secondIndex = (index - firstBottleCount) % secondBottle.length;
 				const target = secondBottle[secondIndex];
 				targetX = target.x;
@@ -265,7 +308,7 @@ export const PerfumeBottleParticles = (props: PerfumeBottleParticlesProps) => {
 			} else {
 				// After formation, lock bottle particles to their target positions (stable)
 				const lockParticles = () => {
-					if (!container.particles || isMobileRef.current) return; // Stop if mobile
+					if (!container.particles || (isMobileRef.current && !isSmallScreenRef.current)) return; // Stop if mobile (but not small screen)
 
 					particleDataRef.current.forEach((data, particle) => {
 						if (data.isBackground) {
@@ -300,39 +343,63 @@ export const PerfumeBottleParticles = (props: PerfumeBottleParticlesProps) => {
 
 				const width = containerRef.current.canvas.size?.width || window.innerWidth;
 				const height = containerRef.current.canvas.size?.height || window.innerHeight;
+				const isSmallScreen = width < 500;
 				const isMobile = width <= 768;
 
-				// Update bottle positions based on screen size
+				// Update screen size refs
 				isMobileRef.current = isMobile;
+				isSmallScreenRef.current = isSmallScreen;
 
 				// Update bottle positions based on screen size
-				if (isMobile) {
-					// Mobile: top and bottom
-					firstBottleShapeRef.current = getBottleShape(width, height, "top", isMobile);
-					secondBottleShapeRef.current = getBottleShape(width, height, "bottom", isMobile);
+				if (isSmallScreen) {
+					// Very small screen (<500px): one centered bottle
+					firstBottleShapeRef.current = getBottleShape(
+						width,
+						height,
+						"center",
+						isMobile,
+						isSmallScreen
+					);
+					secondBottleShapeRef.current = []; // No second bottle
+				} else if (isMobile) {
+					// Mobile (500-768px): no bottles, all background
+					firstBottleShapeRef.current = [];
+					secondBottleShapeRef.current = [];
 				} else {
-					// Desktop: left and right
-					firstBottleShapeRef.current = getBottleShape(width, height, "left", isMobile);
-					secondBottleShapeRef.current = getBottleShape(width, height, "right", isMobile);
+					// Desktop (>768px): left and right
+					firstBottleShapeRef.current = getBottleShape(
+						width,
+						height,
+						"left",
+						isMobile,
+						isSmallScreen
+					);
+					secondBottleShapeRef.current = getBottleShape(
+						width,
+						height,
+						"right",
+						isMobile,
+						isSmallScreen
+					);
 				}
 
-				// Recalculate and reposition particles if bottles are already formed (desktop only)
-				if (containerRef.current.particles && isForming && !isMobile) {
+				// Recalculate and reposition particles if bottles are already formed
+				if (containerRef.current.particles && isForming) {
 					// Cancel any ongoing animation
 					if (animationFrameRef.current) {
 						cancelAnimationFrame(animationFrameRef.current);
 					}
-					startFormingBottles(containerRef.current);
-				} else if (isMobile && containerRef.current.particles) {
-					// On mobile, stop any bottle formation and release all particles to background
-					if (animationFrameRef.current) {
-						cancelAnimationFrame(animationFrameRef.current);
+
+					if (isSmallScreen || !isMobile) {
+						// Small screen or desktop: form bottles
+						startFormingBottles(containerRef.current);
+					} else {
+						// Mobile (500-768px): release all particles to background
+						particleDataRef.current.forEach((data) => {
+							data.isBackground = true;
+						});
+						setIsForming(false);
 					}
-					// Release all particles to background
-					particleDataRef.current.forEach((data) => {
-						data.isBackground = true;
-					});
-					setIsForming(false);
 				}
 			}, 250); // 250ms debounce
 		};
