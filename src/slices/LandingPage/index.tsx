@@ -3,7 +3,7 @@
 import { type FC } from "react";
 import { type Content } from "@prismicio/client";
 import { PrismicRichText, type SliceComponentProps } from "@prismicio/react";
-import { SparklesCore } from "@/components/ui/sparkles";
+import { PerfumeBottleParticles } from "@/components/ui/perfume-bottle-particles";
 import { isFilled } from "@prismicio/client";
 
 /**
@@ -17,17 +17,12 @@ type LandingPageProps = SliceComponentProps<Content.LandingPageSlice>;
 const LandingPage: FC<LandingPageProps> = ({ slice }) => {
 	return (
 		<div className="h-screen w-full bg-black flex flex-col items-center justify-center overflow-hidden relative">
-			{/* Sparkles Background */}
+			{/* Perfume Bottle Particles Background */}
 			<div className="w-full absolute inset-0 h-screen">
-				<SparklesCore
-					id="tsparticleslandingpage"
-					background="transparent"
-					minSize={0.6}
-					maxSize={1.4}
-					particleDensity={100}
+				<PerfumeBottleParticles
+					id="perfumebottleparticles"
 					className="w-full h-full"
 					particleColor="#FFFFFF"
-					speed={1}
 				/>
 			</div>
 
