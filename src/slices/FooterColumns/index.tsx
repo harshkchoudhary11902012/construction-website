@@ -2,7 +2,7 @@
 
 import { type FC } from "react";
 import { PrismicNextLink } from "@prismicio/next";
-import { Box, Grid, Group, Image, Stack, Text, Anchor, rem } from "@mantine/core";
+import { Grid, Group, Image, Stack, Text, Anchor, rem } from "@mantine/core";
 import {
 	IconMapPin,
 	IconPhone,
