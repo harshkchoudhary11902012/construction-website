@@ -1,0 +1,51 @@
+{
+  "id": "newsletter",
+  "type": "SharedSlice",
+  "name": "Newsletter",
+  "description": "Newsletter subscription section with heading, email input and subscribe button",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Newsletter section",
+      "primary": {
+        "heading_line1": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading Line 1",
+            "placeholder": "Newsletter To Get Updated",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "heading_line2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading Line 2",
+            "placeholder": "The Latest News",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Input Placeholder",
+            "placeholder": "Enter Email"
+          }
+        },
+        "subscribe_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Subscribe Button Text",
+            "placeholder": "Subscribe Now"
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

@@ -27,10 +27,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "rich_text": {
-              "type": "SharedSlice"
-            },
-            "landing_page": {
+            "hero": {
               "type": "SharedSlice"
             }
           }

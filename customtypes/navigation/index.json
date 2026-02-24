@@ -1,0 +1,78 @@
+{
+  "id": "navigation",
+  "label": "Navigation",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {
+            "width": 200,
+            "height": 80
+          },
+          "thumbnails": []
+        }
+      },
+      "company_name_line1": {
+        "type": "Text",
+        "config": {
+          "label": "Company Name (Line 1)",
+          "placeholder": "BUILDA"
+        }
+      },
+      "company_name_line2": {
+        "type": "Text",
+        "config": {
+          "label": "Company Name (Line 2)",
+          "placeholder": "CONSTRUCTIONS"
+        }
+      }
+    },
+    "Nav Links": {
+      "nav_links": {
+        "type": "Group",
+        "config": {
+          "label": "Nav Links",
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": "Home"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "/",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "CTA": {
+      "cta_label": {
+        "type": "Text",
+        "config": {
+          "label": "CTA Button Label",
+          "placeholder": "GET A QUOTE"
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA Button Link",
+          "placeholder": "/contact",
+          "select": null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [],
+    "primary": {
+      "copyright_text": [
+        {
+          "type": "paragraph",
+          "text": "Copyright © 2025 Builda, All rights reserved.",
+          "spans": []
+        }
+      ],
+      "terms_link": { "link_type": "Web", "url": "/terms" },
+      "terms_label": "Terms of service",
+      "privacy_link": { "link_type": "Web", "url": "/privacy" },
+      "privacy_label": "Privacy policy",
+      "cookies_link": { "link_type": "Web", "url": "/cookies" },
+      "cookies_label": "Cookies"
+    },
+    "slice_type": "copyright",
+    "slice_label": null
+  }
+]

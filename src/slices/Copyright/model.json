@@ -1,0 +1,69 @@
+{
+  "id": "copyright",
+  "type": "SharedSlice",
+  "name": "Copyright",
+  "description": "Copyright bar with text and legal links",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Copyright bar",
+      "primary": {
+        "copyright_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Copyright Text",
+            "placeholder": "Copyright © 2025 Builda, All rights reserved.",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "terms_link": {
+          "type": "Link",
+          "config": {
+            "label": "Terms of Service Link",
+            "placeholder": "/terms"
+          }
+        },
+        "terms_label": {
+          "type": "Text",
+          "config": {
+            "label": "Terms of Service Label",
+            "placeholder": "Terms of service"
+          }
+        },
+        "privacy_link": {
+          "type": "Link",
+          "config": {
+            "label": "Privacy Policy Link",
+            "placeholder": "/privacy"
+          }
+        },
+        "privacy_label": {
+          "type": "Text",
+          "config": {
+            "label": "Privacy Policy Label",
+            "placeholder": "Privacy policy"
+          }
+        },
+        "cookies_link": {
+          "type": "Link",
+          "config": {
+            "label": "Cookies Link",
+            "placeholder": "/cookies"
+          }
+        },
+        "cookies_label": {
+          "type": "Text",
+          "config": {
+            "label": "Cookies Label",
+            "placeholder": "Cookies"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "heading1", "content": { "text": "Architecture That Speaks Volumes" } }]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Modern architecture is a design approach that emphasizes simplicity, functionality, and innovation. It moves away from excessive ornamentation and focuses on clean lines, open spaces, and the thoughtful use of materials."
+            }
+          }
+        ]
+      },
+      "cta_label": "Discover More",
+      "cta_link": { "__TYPE__": "LinkContent", "value": { "link_type": "Web", "url": "/services" } },
+      "carousel_images": [
+        { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop" } } } },
+        { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop" } } } },
+        { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop" } } } },
+        { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&h=800&fit=crop" } } } },
+        { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=800&fit=crop" } } } }
+      ]
+    },
+    "items": []
+  }
+]

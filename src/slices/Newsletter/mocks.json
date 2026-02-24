@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading_line1": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "World"
+						}
+					}
+				]
+			},
+			"heading_line2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Scientific"
+						}
+					}
+				]
+			},
+			"email_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "ready",
+				"type": "Text"
+			},
+			"subscribe_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "type",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

@@ -1,0 +1,162 @@
+{
+  "id": "footer_columns",
+  "type": "SharedSlice",
+  "name": "Footer Columns",
+  "description": "Footer with About, Get In Touch, Useful Links and Explore columns",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Footer columns",
+      "primary": {
+        "company_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Company Logo",
+            "constraint": { "width": 200, "height": 80 },
+            "thumbnails": []
+          }
+        },
+        "company_name": {
+          "type": "Text",
+          "config": {
+            "label": "Company Name",
+            "placeholder": "BUILDA CONSTRUCTIONS"
+          }
+        },
+        "company_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Company Description",
+            "placeholder": "Rapidiously myocardinate cross-platform...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "social_links": {
+          "type": "Group",
+          "config": {
+            "label": "Social Media Links",
+            "fields": {
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon",
+                  "options": ["facebook", "twitter", "linkedin", "youtube", "instagram"],
+                  "default_value": "facebook"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "https://facebook.com"
+                }
+              }
+            }
+          }
+        },
+        "get_in_touch_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Get In Touch Heading",
+            "placeholder": "Get In Touch"
+          }
+        },
+        "contact_items": {
+          "type": "Group",
+          "config": {
+            "label": "Contact Items",
+            "fields": {
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon Type",
+                  "options": ["location", "phone", "email"],
+                  "default_value": "location"
+                }
+              },
+              "lines": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Content (one paragraph per line)",
+                  "placeholder": "789 Inner Lane, Holy park,\nCalifornia, USA",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link (optional, for phone/email)",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "useful_links_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Useful Links Heading",
+            "placeholder": "Useful Link"
+          }
+        },
+        "useful_links": {
+          "type": "Group",
+          "config": {
+            "label": "Useful Links",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Link Label",
+                  "placeholder": "About us"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "/about"
+                }
+              }
+            }
+          }
+        },
+        "explore_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Explore Heading",
+            "placeholder": "Explore"
+          }
+        },
+        "explore_links": {
+          "type": "Group",
+          "config": {
+            "label": "Explore Links",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Link Label",
+                  "placeholder": "All Properties"
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "/properties"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [],
+    "primary": {
+      "company_logo": {
+        "dimensions": { "width": 200, "height": 80 },
+        "alt": null,
+        "copyright": null,
+        "url": "https://images.unsplash.com/placeholder"
+      },
+      "company_name": "BUILDA CONSTRUCTIONS",
+      "company_description": [
+        {
+          "type": "paragraph",
+          "text": "Rapidiously myocardinate cross-platform intellectual capital and model...",
+          "spans": []
+        }
+      ],
+      "social_links": [
+        { "icon": "facebook", "link": { "link_type": "Web", "url": "https://facebook.com" } },
+        { "icon": "twitter", "link": { "link_type": "Web", "url": "https://twitter.com" } },
+        { "icon": "linkedin", "link": { "link_type": "Web", "url": "https://linkedin.com" } },
+        { "icon": "youtube", "link": { "link_type": "Web", "url": "https://youtube.com" } },
+        { "icon": "instagram", "link": { "link_type": "Web", "url": "https://instagram.com" } }
+      ],
+      "get_in_touch_heading": "Get In Touch",
+      "contact_items": [
+        {
+          "icon": "location",
+          "lines": [
+            { "type": "paragraph", "text": "789 Inner Lane, Holy park,\nCalifornia, USA", "spans": [] }
+          ],
+          "link": { "link_type": "Any" }
+        },
+        {
+          "icon": "phone",
+          "lines": [
+            { "type": "paragraph", "text": "+01 234 567 890\n+09 876 543 210", "spans": [] }
+          ],
+          "link": { "link_type": "Web", "url": "tel:+01234567890" }
+        },
+        {
+          "icon": "email",
+          "lines": [
+            { "type": "paragraph", "text": "mailinfo00@builda.com\nsupport24@builda.com", "spans": [] }
+          ],
+          "link": { "link_type": "Web", "url": "mailto:mailinfo00@builda.com" }
+        }
+      ],
+      "useful_links_heading": "Useful Link",
+      "useful_links": [
+        { "label": "About us", "link": { "link_type": "Web", "url": "/about" } },
+        { "label": "Featured Properties", "link": { "link_type": "Web", "url": "/properties" } },
+        { "label": "Our Best Services", "link": { "link_type": "Web", "url": "/services" } },
+        { "label": "Request Visit", "link": { "link_type": "Web", "url": "/contact" } },
+        { "label": "FAQ", "link": { "link_type": "Web", "url": "/faq" } }
+      ],
+      "explore_heading": "Explore",
+      "explore_links": [
+        { "label": "All Properties", "link": { "link_type": "Web", "url": "/properties" } },
+        { "label": "Our Agents", "link": { "link_type": "Web", "url": "/agents" } },
+        { "label": "All Projects", "link": { "link_type": "Web", "url": "/projects" } },
+        { "label": "Our Process", "link": { "link_type": "Web", "url": "/process" } },
+        { "label": "Neighborhood", "link": { "link_type": "Web", "url": "/neighborhood" } }
+      ]
+    },
+    "slice_type": "footer_columns",
+    "slice_label": null
+  }
+]

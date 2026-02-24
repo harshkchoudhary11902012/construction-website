@@ -1,0 +1,22 @@
+{
+  "id": "footer",
+  "label": "Footer",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "newsletter": { "type": "SharedSlice" },
+            "footer_columns": { "type": "SharedSlice" },
+            "copyright": { "type": "SharedSlice" }
+          }
+        }
+      }
+    }
+  }
+}

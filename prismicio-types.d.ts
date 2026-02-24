@@ -69,7 +69,160 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type PageDocumentDataSlicesSlice = RichTextSlice | LandingPageSlice;
+type FooterDocumentDataSlicesSlice =
+  | NewsletterSlice
+  | FooterColumnsSlice
+  | CopyrightSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+/**
+ * Item in *Navigation → Nav Links*
+ */
+export interface NavigationDocumentDataNavLinksItem {
+  /**
+   * Label field in *Navigation → Nav Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Home
+   * - **API ID Path**: navigation.nav_links[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Navigation → Nav Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /
+   * - **API ID Path**: navigation.nav_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for Navigation documents
+ */
+interface NavigationDocumentData {
+  /**
+   * Logo field in *Navigation*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Company Name (Line 1) field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: BUILDA
+   * - **API ID Path**: navigation.company_name_line1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company_name_line1: prismic.KeyTextField;
+
+  /**
+   * Company Name (Line 2) field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: CONSTRUCTIONS
+   * - **API ID Path**: navigation.company_name_line2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company_name_line2: prismic.KeyTextField /**
+   * Nav Links field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.nav_links[]
+   * - **Tab**: Nav Links
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */;
+  nav_links: prismic.GroupField<
+    Simplify<NavigationDocumentDataNavLinksItem>
+  > /**
+   * CTA Button Label field in *Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: GET A QUOTE
+   * - **API ID Path**: navigation.cta_label
+   * - **Tab**: CTA
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Button Link field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /contact
+   * - **API ID Path**: navigation.cta_link
+   * - **Tab**: CTA
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
+    Lang
+  >;
+
+type PageDocumentDataSlicesSlice = HeroSlice;
 
 /**
  * Content for Page documents
@@ -141,106 +294,571 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | NavigationDocument
+  | PageDocument;
 
 /**
- * Primary content in *LandingPage → Default → Primary*
+ * Primary content in *Copyright → Default → Primary*
  */
-export interface LandingPageSliceDefaultPrimary {
+export interface CopyrightSliceDefaultPrimary {
   /**
-   * Title field in *LandingPage → Default → Primary*
+   * Copyright Text field in *Copyright → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Enter your main title
-   * - **API ID Path**: landing_page.default.primary.title
+   * - **Placeholder**: Copyright © 2025 Builda, All rights reserved.
+   * - **API ID Path**: copyright.default.primary.copyright_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  copyright_text: prismic.RichTextField;
+
+  /**
+   * Terms of Service Link field in *Copyright → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /terms
+   * - **API ID Path**: copyright.default.primary.terms_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  terms_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Terms of Service Label field in *Copyright → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Terms of service
+   * - **API ID Path**: copyright.default.primary.terms_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  terms_label: prismic.KeyTextField;
+
+  /**
+   * Privacy Policy Link field in *Copyright → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /privacy
+   * - **API ID Path**: copyright.default.primary.privacy_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  privacy_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Privacy Policy Label field in *Copyright → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Privacy policy
+   * - **API ID Path**: copyright.default.primary.privacy_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  privacy_label: prismic.KeyTextField;
+
+  /**
+   * Cookies Link field in *Copyright → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /cookies
+   * - **API ID Path**: copyright.default.primary.cookies_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cookies_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Cookies Label field in *Copyright → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Cookies
+   * - **API ID Path**: copyright.default.primary.cookies_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cookies_label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Copyright Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Copyright bar
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CopyrightSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CopyrightSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Copyright*
+ */
+type CopyrightSliceVariation = CopyrightSliceDefault;
+
+/**
+ * Copyright Shared Slice
+ *
+ * - **API ID**: `copyright`
+ * - **Description**: Copyright bar with text and legal links
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CopyrightSlice = prismic.SharedSlice<
+  "copyright",
+  CopyrightSliceVariation
+>;
+
+/**
+ * Item in *Footer Columns → Default → Primary → Social Media Links*
+ */
+export interface FooterColumnsSliceDefaultPrimarySocialLinksItem {
+  /**
+   * Icon field in *Footer Columns → Default → Primary → Social Media Links*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: facebook
+   * - **API ID Path**: footer_columns.default.primary.social_links[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "facebook" | "twitter" | "linkedin" | "youtube" | "instagram",
+    "filled"
+  >;
+
+  /**
+   * Link field in *Footer Columns → Default → Primary → Social Media Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: https://facebook.com
+   * - **API ID Path**: footer_columns.default.primary.social_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Footer Columns → Default → Primary → Contact Items*
+ */
+export interface FooterColumnsSliceDefaultPrimaryContactItemsItem {
+  /**
+   * Icon Type field in *Footer Columns → Default → Primary → Contact Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: location
+   * - **API ID Path**: footer_columns.default.primary.contact_items[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<"location" | "phone" | "email", "filled">;
+
+  /**
+	 * Content (one paragraph per line) field in *Footer Columns → Default → Primary → Contact Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: 789 Inner Lane, Holy park,
+	California, USA
+	 * - **API ID Path**: footer_columns.default.primary.contact_items[].lines
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+  lines: prismic.RichTextField;
+
+  /**
+   * Link (optional, for phone/email) field in *Footer Columns → Default → Primary → Contact Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_columns.default.primary.contact_items[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Footer Columns → Default → Primary → Useful Links*
+ */
+export interface FooterColumnsSliceDefaultPrimaryUsefulLinksItem {
+  /**
+   * Link Label field in *Footer Columns → Default → Primary → Useful Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: About us
+   * - **API ID Path**: footer_columns.default.primary.useful_links[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Footer Columns → Default → Primary → Useful Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /about
+   * - **API ID Path**: footer_columns.default.primary.useful_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *Footer Columns → Default → Primary → Explore Links*
+ */
+export interface FooterColumnsSliceDefaultPrimaryExploreLinksItem {
+  /**
+   * Link Label field in *Footer Columns → Default → Primary → Explore Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: All Properties
+   * - **API ID Path**: footer_columns.default.primary.explore_links[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Footer Columns → Default → Primary → Explore Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /properties
+   * - **API ID Path**: footer_columns.default.primary.explore_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *Footer Columns → Default → Primary*
+ */
+export interface FooterColumnsSliceDefaultPrimary {
+  /**
+   * Company Logo field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_columns.default.primary.company_logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  company_logo: prismic.ImageField<never>;
+
+  /**
+   * Company Name field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: BUILDA CONSTRUCTIONS
+   * - **API ID Path**: footer_columns.default.primary.company_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company_name: prismic.KeyTextField;
+
+  /**
+   * Company Description field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Rapidiously myocardinate cross-platform...
+   * - **API ID Path**: footer_columns.default.primary.company_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  company_description: prismic.RichTextField;
+
+  /**
+   * Social Media Links field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_columns.default.primary.social_links[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_links: prismic.GroupField<
+    Simplify<FooterColumnsSliceDefaultPrimarySocialLinksItem>
+  >;
+
+  /**
+   * Get In Touch Heading field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Get In Touch
+   * - **API ID Path**: footer_columns.default.primary.get_in_touch_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  get_in_touch_heading: prismic.KeyTextField;
+
+  /**
+   * Contact Items field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_columns.default.primary.contact_items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  contact_items: prismic.GroupField<
+    Simplify<FooterColumnsSliceDefaultPrimaryContactItemsItem>
+  >;
+
+  /**
+   * Useful Links Heading field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Useful Link
+   * - **API ID Path**: footer_columns.default.primary.useful_links_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  useful_links_heading: prismic.KeyTextField;
+
+  /**
+   * Useful Links field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_columns.default.primary.useful_links[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  useful_links: prismic.GroupField<
+    Simplify<FooterColumnsSliceDefaultPrimaryUsefulLinksItem>
+  >;
+
+  /**
+   * Explore Heading field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Explore
+   * - **API ID Path**: footer_columns.default.primary.explore_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  explore_heading: prismic.KeyTextField;
+
+  /**
+   * Explore Links field in *Footer Columns → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_columns.default.primary.explore_links[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  explore_links: prismic.GroupField<
+    Simplify<FooterColumnsSliceDefaultPrimaryExploreLinksItem>
+  >;
+}
+
+/**
+ * Default variation for Footer Columns Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Footer columns
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterColumnsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterColumnsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer Columns*
+ */
+type FooterColumnsSliceVariation = FooterColumnsSliceDefault;
+
+/**
+ * Footer Columns Shared Slice
+ *
+ * - **API ID**: `footer_columns`
+ * - **Description**: Footer with About, Get In Touch, Useful Links and Explore columns
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FooterColumnsSlice = prismic.SharedSlice<
+  "footer_columns",
+  FooterColumnsSliceVariation
+>;
+
+/**
+ * Item in *Hero → Default → Primary → Carousel Images*
+ */
+export interface HeroSliceDefaultPrimaryCarouselImagesItem {
+  /**
+   * Image field in *Hero → Default → Primary → Carousel Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.carousel_images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Architecture That Speaks Volumes
+   * - **API ID Path**: hero.default.primary.title
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
 
   /**
-   * Subtitle field in *LandingPage → Default → Primary*
+   * Description field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Enter a subtitle or description
-   * - **API ID Path**: landing_page.default.primary.subtitle
+   * - **Placeholder**: Modern architecture is a design approach...
+   * - **API ID Path**: hero.default.primary.description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  subtitle: prismic.RichTextField;
-}
+  description: prismic.RichTextField;
 
-/**
- * Default variation for LandingPage Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default landing page variation
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type LandingPageSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<LandingPageSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *LandingPage*
- */
-type LandingPageSliceVariation = LandingPageSliceDefault;
-
-/**
- * LandingPage Shared Slice
- *
- * - **API ID**: `landing_page`
- * - **Description**: Landing page with sparkles animation background
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type LandingPageSlice = prismic.SharedSlice<
-  "landing_page",
-  LandingPageSliceVariation
->;
-
-/**
- * Primary content in *RichText → Default → Primary*
- */
-export interface RichTextSliceDefaultPrimary {
   /**
-   * Content field in *RichText → Default → Primary*
+   * CTA Button Label field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Field Type**: Text
+   * - **Placeholder**: Discover More
+   * - **API ID Path**: hero.default.primary.cta_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  content: prismic.RichTextField;
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Button Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /services
+   * - **API ID Path**: hero.default.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Carousel Images field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.carousel_images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  carousel_images: prismic.GroupField<
+    Simplify<HeroSliceDefaultPrimaryCarouselImagesItem>
+  >;
 }
 
 /**
- * Default variation for RichText Slice
+ * Default variation for Hero Slice
  *
  * - **API ID**: `default`
- * - **Description**: RichText
+ * - **Description**: Hero with title, description, CTA and image carousel
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
+export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<RichTextSliceDefaultPrimary>,
+  Simplify<HeroSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *RichText*
+ * Slice variation for *Hero*
  */
-type RichTextSliceVariation = RichTextSliceDefault;
+type HeroSliceVariation = HeroSliceDefault;
 
 /**
- * RichText Shared Slice
+ * Hero Shared Slice
  *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
+ * - **API ID**: `hero`
+ * - **Description**: Hero section with main image and carousel
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Newsletter → Default → Primary*
+ */
+export interface NewsletterSliceDefaultPrimary {
+  /**
+   * Heading Line 1 field in *Newsletter → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Newsletter To Get Updated
+   * - **API ID Path**: newsletter.default.primary.heading_line1
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading_line1: prismic.RichTextField;
+
+  /**
+   * Heading Line 2 field in *Newsletter → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: The Latest News
+   * - **API ID Path**: newsletter.default.primary.heading_line2
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading_line2: prismic.RichTextField;
+
+  /**
+   * Email Input Placeholder field in *Newsletter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Enter Email
+   * - **API ID Path**: newsletter.default.primary.email_placeholder
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email_placeholder: prismic.KeyTextField;
+
+  /**
+   * Subscribe Button Text field in *Newsletter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Subscribe Now
+   * - **API ID Path**: newsletter.default.primary.subscribe_button_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subscribe_button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Newsletter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Newsletter section
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type NewsletterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Newsletter*
+ */
+type NewsletterSliceVariation = NewsletterSliceDefault;
+
+/**
+ * Newsletter Shared Slice
+ *
+ * - **API ID**: `newsletter`
+ * - **Description**: Newsletter subscription section with heading, email input and subscribe button
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type NewsletterSlice = prismic.SharedSlice<
+  "newsletter",
+  NewsletterSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -264,18 +882,37 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
+      NavigationDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataNavLinksItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
-      LandingPageSlice,
-      LandingPageSliceDefaultPrimary,
-      LandingPageSliceVariation,
-      LandingPageSliceDefault,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
+      CopyrightSlice,
+      CopyrightSliceDefaultPrimary,
+      CopyrightSliceVariation,
+      CopyrightSliceDefault,
+      FooterColumnsSlice,
+      FooterColumnsSliceDefaultPrimarySocialLinksItem,
+      FooterColumnsSliceDefaultPrimaryContactItemsItem,
+      FooterColumnsSliceDefaultPrimaryUsefulLinksItem,
+      FooterColumnsSliceDefaultPrimaryExploreLinksItem,
+      FooterColumnsSliceDefaultPrimary,
+      FooterColumnsSliceVariation,
+      FooterColumnsSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimaryCarouselImagesItem,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
+      NewsletterSlice,
+      NewsletterSliceDefaultPrimary,
+      NewsletterSliceVariation,
+      NewsletterSliceDefault,
     };
   }
 }
