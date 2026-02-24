@@ -1,5 +1,5 @@
 {
-  "repositoryName": "construction-website",
+  "repositoryName": "soul",
   "adapter": "@slicemachine/adapter-next",
   "libraries": [
     "./src/slices"
