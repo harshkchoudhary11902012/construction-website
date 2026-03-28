@@ -1,0 +1,75 @@
+/* Mobile drawer: brand in header */
+.drawerBrand {
+	display: flex;
+	align-items: center;
+	gap: var(--mantine-spacing-sm);
+	min-width: 0;
+	width: 100%;
+	text-decoration: none;
+	color: inherit;
+}
+
+.drawerBrandText {
+	min-width: 0;
+}
+
+/* Mobile drawer: primary navigation list (drawer is small view only) */
+.drawerNav {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+/* Divider below every nav row (including the last link) */
+.drawerLink {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--mantine-spacing-sm);
+	width: 100%;
+	padding: 0.9rem 1rem;
+	border-radius: 0;
+	color: var(--mantine-color-dark-7);
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.3;
+	text-decoration: none;
+	transition:
+		background-color 0.15s ease,
+		color 0.15s ease;
+	border: none;
+	border-bottom: 1px solid color-mix(in srgb, var(--mantine-color-dark-3) 12%, transparent);
+}
+
+.drawerLink:hover {
+	background-color: var(--mantine-color-gray-0);
+	color: var(--mantine-color-dark-9);
+}
+
+.drawerLink:active {
+	background-color: var(--mantine-color-gray-1);
+}
+
+.drawerChevron {
+	flex-shrink: 0;
+	color: var(--mantine-color-dark-3);
+	opacity: 0.85;
+	transition: transform 0.2s ease, color 0.15s ease;
+}
+
+.drawerLink:hover .drawerChevron {
+	color: var(--mantine-color-orange-6);
+	transform: translateX(3px);
+}
+
+.drawerDivider {
+	height: 1px;
+	background: color-mix(in srgb, var(--mantine-color-dark-3) 14%, transparent);
+	margin-block: var(--mantine-spacing-lg) var(--mantine-spacing-md);
+	border: none;
+}
+
+.drawerCtaWrap {
+	margin-top: auto;
+	padding-top: var(--mantine-spacing-md);
+}

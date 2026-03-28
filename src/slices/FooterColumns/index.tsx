@@ -2,7 +2,7 @@
 
 import { type FC } from "react";
 import { PrismicNextLink } from "@prismicio/next";
-import { Grid, Group, Image, Stack, Text, Anchor, rem } from "@mantine/core";
+import { Box, Grid, Group, Image, Stack, Text, Anchor, rem } from "@mantine/core";
 import {
 	IconMapPin,
 	IconPhone,
@@ -54,13 +54,14 @@ const FooterColumns: FC<FooterColumnsProps> = ({ slice }) => {
 	const explore = explore_links ?? [];
 
 	return (
-		<Stack justify="center" align="center" py={50} px={200}>
-			<Grid grow w="100%" gutter="xl">
+		<Box className="layout-content" w="100%">
+			<Stack justify="center" align="stretch" py={{ base: 32, sm: 40, md: 50 }} px={0}>
+				<Grid grow w="100%" gutter={{ base: "md", sm: "lg", md: "xl" }}>
 				{/* Column 1: About */}
 				<Grid.Col span={{ base: 12, sm: 6, md: 3 }}>
-					<Stack gap={"xl"}>
+					<Stack gap="xl">
 						{(company_logo.url || company_name) && (
-							<Group gap={0} wrap="nowrap">
+							<Group gap="sm" wrap="wrap" align="center">
 								{company_logo?.url && (
 									<Image
 										src={company_logo.url}
@@ -71,7 +72,12 @@ const FooterColumns: FC<FooterColumnsProps> = ({ slice }) => {
 									/>
 								)}
 								{company_name && (
-									<Text fz={20} c="dark.7" w={100}>
+									<Text
+										fz={{ base: 18, sm: 20 }}
+										c="dark.7"
+										maw={{ base: "100%", sm: 220 }}
+										style={{ wordBreak: "break-word" }}
+									>
 										{company_name}
 									</Text>
 								)}
@@ -82,7 +88,8 @@ const FooterColumns: FC<FooterColumnsProps> = ({ slice }) => {
 								field={company_description}
 								body="body2"
 								c="dark.6"
-								w={260}
+								maw={{ base: "100%", sm: 360 }}
+								w="100%"
 							/>
 						)}
 						<Group gap="xs">
@@ -169,7 +176,7 @@ const FooterColumns: FC<FooterColumnsProps> = ({ slice }) => {
 								{useful_links_heading}
 							</Text>
 						)}
-						<Stack gap="xl">
+						<Stack gap="md">
 							{useful.map((item, idx) => (
 								<Anchor
 									key={idx}
@@ -194,7 +201,7 @@ const FooterColumns: FC<FooterColumnsProps> = ({ slice }) => {
 								{explore_heading}
 							</Text>
 						)}
-						<Stack gap="xl">
+						<Stack gap="md">
 							{explore.map((item, idx) => (
 								<Anchor
 									key={idx}
@@ -211,7 +218,8 @@ const FooterColumns: FC<FooterColumnsProps> = ({ slice }) => {
 					</Stack>
 				</Grid.Col>
 			</Grid>
-		</Stack>
+			</Stack>
+		</Box>
 	);
 };
 

@@ -11,9 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "newsletter": { "type": "SharedSlice" },
-            "footer_columns": { "type": "SharedSlice" },
-            "copyright": { "type": "SharedSlice" }
+            "footer_columns": {
+              "type": "SharedSlice"
+            },
+            "copyright": {
+              "type": "SharedSlice"
+            }
           }
         }
       }

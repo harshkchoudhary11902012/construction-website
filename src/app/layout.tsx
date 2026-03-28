@@ -32,11 +32,11 @@ export default async function RootLayout({
 			<body>
 				<ColorSchemeScript defaultColorScheme="light" />
 				<MantineProvider theme={theme}>
+					<Header navigation={navigation} />
 					<div className="layout-content">
-						<Header navigation={navigation} />
 						<main>{children}</main>
-						<Footer />
 					</div>
+					<Footer />
 				</MantineProvider>
 				<PrismicPreview repositoryName={repositoryName} />
 			</body>

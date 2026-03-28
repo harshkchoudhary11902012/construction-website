@@ -1,0 +1,90 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "eyebrow": "ABOUT US",
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": { "text": "Architecture That Inspires and Transforms" }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Modern architecture is a design approach that emphasizes simplicity, functionality, and innovation. It moves away from excessive ornamentation and focuses on clean lines, open spaces, and the thoughtful use of materials."
+            }
+          }
+        ]
+      },
+      "features": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "text": "Quality real estate services" }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "text": "100% Satisfaction guarantee" }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "text": "Highly professional team" }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "text": "Dealing always on time" }
+        }
+      ],
+      "phone_label": "Call Us 24/7",
+      "phone_number": "+01 234 56789",
+      "more_button_label": "More About Builda",
+      "more_link": {
+        "__TYPE__": "LinkContent",
+        "value": { "link_type": "Web", "url": "/about-us" }
+      },
+      "carousel_images": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "value": {
+                "url": "https://images.unsplash.com/photo-1518005020951-eccb49477700?w=1200&h=900&fit=crop"
+              }
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "value": {
+                "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=900&fit=crop"
+              }
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "value": {
+                "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=900&fit=crop"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "items": []
+  }
+]

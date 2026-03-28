@@ -11,6 +11,8 @@ export async function Footer() {
 	}
 
 	return (
-		<SliceZone slices={footer.data.slices} components={components} />
+		<footer style={{ width: "100%", maxWidth: "100%", minWidth: 0, boxSizing: "border-box" }}>
+			<SliceZone slices={footer.data.slices} components={components} />
+		</footer>
 	);
 }

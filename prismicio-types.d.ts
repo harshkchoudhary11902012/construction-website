@@ -69,10 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type FooterDocumentDataSlicesSlice =
-  | NewsletterSlice
-  | FooterColumnsSlice
-  | CopyrightSlice;
+type FooterDocumentDataSlicesSlice = FooterColumnsSlice | CopyrightSlice;
 
 /**
  * Content for Footer documents
@@ -222,7 +219,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | AboutUsSlice;
 
 /**
  * Content for Page documents
@@ -298,6 +295,171 @@ export type AllDocumentTypes =
   | FooterDocument
   | NavigationDocument
   | PageDocument;
+
+/**
+ * Item in *AboutUs → Default → Primary → Features*
+ */
+export interface AboutUsSliceDefaultPrimaryFeaturesItem {
+  /**
+   * Feature text field in *AboutUs → Default → Primary → Features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Quality real estate services
+   * - **API ID Path**: about_us.default.primary.features[].text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *AboutUs → Default → Primary → Carousel images*
+ */
+export interface AboutUsSliceDefaultPrimaryCarouselImagesItem {
+  /**
+   * Image field in *AboutUs → Default → Primary → Carousel images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.carousel_images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *AboutUs → Default → Primary*
+ */
+export interface AboutUsSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: ABOUT US
+   * - **API ID Path**: about_us.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Title field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Architecture That Inspires and Transforms
+   * - **API ID Path**: about_us.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Modern architecture emphasizes simplicity and functionality...
+   * - **API ID Path**: about_us.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Features field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.features[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  features: prismic.GroupField<
+    Simplify<AboutUsSliceDefaultPrimaryFeaturesItem>
+  >;
+
+  /**
+   * Phone label field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Call Us 24/7
+   * - **API ID Path**: about_us.default.primary.phone_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  phone_label: prismic.KeyTextField;
+
+  /**
+   * Phone number field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: +01 234 56789
+   * - **API ID Path**: about_us.default.primary.phone_number
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  phone_number: prismic.KeyTextField;
+
+  /**
+   * More button label field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: More About Builda
+   * - **API ID Path**: about_us.default.primary.more_button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  more_button_label: prismic.KeyTextField;
+
+  /**
+   * More button link field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /about-us
+   * - **API ID Path**: about_us.default.primary.more_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  more_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Carousel images field in *AboutUs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.default.primary.carousel_images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  carousel_images: prismic.GroupField<
+    Simplify<AboutUsSliceDefaultPrimaryCarouselImagesItem>
+  >;
+}
+
+/**
+ * Default variation for AboutUs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Two-column about block with stacked carousel
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutUsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutUsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutUs*
+ */
+type AboutUsSliceVariation = AboutUsSliceDefault;
+
+/**
+ * AboutUs Shared Slice
+ *
+ * - **API ID**: `about_us`
+ * - **Description**: About section with copy, features, phone CTA, and stacked image carousel
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AboutUsSlice = prismic.SharedSlice<
+  "about_us",
+  AboutUsSliceVariation
+>;
 
 /**
  * Primary content in *Copyright → Default → Primary*
@@ -927,6 +1089,12 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AboutUsSlice,
+      AboutUsSliceDefaultPrimaryFeaturesItem,
+      AboutUsSliceDefaultPrimaryCarouselImagesItem,
+      AboutUsSliceDefaultPrimary,
+      AboutUsSliceVariation,
+      AboutUsSliceDefault,
       CopyrightSlice,
       CopyrightSliceDefaultPrimary,
       CopyrightSliceVariation,

@@ -2,6 +2,17 @@
 	overflow: visible;
 }
 
+/* Title, description, CTA — centered below `md`, left-aligned from tablet/desktop */
+.heroCopy {
+	text-align: center;
+}
+
+@media (min-width: 48em) {
+	.heroCopy {
+		text-align: left;
+	}
+}
+
 /* Sits above the stats band so hero imagery stays on top in the overlap zone */
 .heroGridWrap {
 	position: relative;
@@ -15,22 +26,99 @@
 /* Carousel width for slide height (--hero-slide-h); gap must match .emblaTrack */
 .carouselMetrics {
 	--hero-carousel-gap: 25px;
-	--hero-slide-h: calc((100cqw - 2 * 25px) / 3 * 9 / 16 + 100px);
+	--hero-slide-h: calc(
+		(100cqw - 2 * var(--hero-carousel-gap)) / 3 * 9 / 16 + 100px
+	);
 
 	position: relative;
 	width: 100%;
 	container-type: inline-size;
 }
 
+@media (max-width: 47.99em) {
+	.carouselMetrics {
+		--hero-carousel-gap: 8px;
+		--hero-slide-h: calc(
+			(100cqw - 2 * var(--hero-carousel-gap)) / 3 * 9 / 16 + 52px
+		);
+	}
+}
+
+@media (min-width: 48em) and (max-width: 61.99em) {
+	.carouselMetrics {
+		--hero-carousel-gap: 14px;
+		--hero-slide-h: calc(
+			(100cqw - 2 * var(--hero-carousel-gap)) / 3 * 9 / 16 + 72px
+		);
+	}
+}
+
 .rightStack {
 	overflow: visible;
+}
+
+/* Without carousel on small screens, stack from top instead of spreading */
+@media (max-width: 47.99em) {
+	.rightStack {
+		justify-content: flex-start;
+	}
 }
 
 @media (min-width: 48em) {
 	.rightStack {
 		min-height: 100%;
 		height: 100%;
+		/* Vertically center copy + carousel against the image column */
+		justify-content: center;
+		gap: var(--mantine-spacing-xl);
 	}
+}
+
+/* Carousel only from tablet/desktop up */
+.carouselDesktopOnly {
+	display: none;
+}
+
+@media (min-width: 48em) {
+	.carouselDesktopOnly {
+		display: block;
+	}
+}
+
+/* Full-bleed stat band surface (shared) */
+.statsBand {
+	position: relative;
+	left: 50%;
+	width: 100vw;
+	max-width: none;
+	transform: translateX(-50%);
+	box-sizing: border-box;
+	min-width: 0;
+	background: linear-gradient(118deg, #fff6ec 0%, #ffe8cf 38%, #fff3e0 72%, #ffefd6 100%);
+}
+
+/* Below CTA on small screens only; stats stacked vertically */
+.statsInline {
+	display: block;
+	margin-top: var(--mantine-spacing-xl);
+	margin-bottom: var(--mantine-spacing-md);
+	padding: var(--mantine-spacing-md) clamp(0.75rem, 4vw, 1.25rem);
+	padding-bottom: var(--mantine-spacing-lg);
+}
+
+@media (min-width: 48em) {
+	.statsInline {
+		display: none;
+	}
+}
+
+.statsInlineInner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--mantine-spacing-lg);
+	max-width: 20rem;
+	margin-inline: auto;
 }
 
 .carouselWrap {
@@ -45,11 +133,11 @@
 
 .emblaTrack {
 	display: flex;
-	gap: 25px;
+	gap: var(--hero-carousel-gap);
 }
 
 .slide {
-	flex: 0 0 calc((100% - 2 * 25px) / 3);
+	flex: 0 0 calc((100% - 2 * var(--hero-carousel-gap)) / 3);
 	min-width: 0;
 	height: 0;
 	padding-bottom: var(--hero-slide-h);
@@ -79,6 +167,12 @@
 	pointer-events: none;
 }
 
+@media (max-width: 47.99em) {
+	.navOverlay {
+		inset-inline: -6px;
+	}
+}
+
 .navBtn {
 	pointer-events: auto;
 	width: 40px;
@@ -90,55 +184,93 @@
 	border: 1px solid gray;
 }
 
+@media (max-width: 47.99em) {
+	.navBtn {
+		width: 36px;
+		height: 36px;
+		min-width: 36px;
+	}
+}
+
 .statsAside {
 	/* Break out of .layout-content (max-width: 1800px) — span full viewport */
-	position: relative;
+	composes: statsBand;
 	z-index: 1;
-	left: 50%;
-	width: 100vw;
-	max-width: none;
-	transform: translateX(-50%);
-	box-sizing: border-box;
-	min-width: 0;
-	min-height: 300px;
-	height: 440px;
-	/* margin-top: pulled up by inline style once measured (see Hero overlap constants) */
+	min-height: auto;
+	height: auto;
 	margin-top: var(--mantine-spacing-lg);
 	margin-bottom: var(--mantine-spacing-xl);
-	/* padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);	 */
-	padding-bottom: 50px;
+	padding: var(--mantine-spacing-md) clamp(0.75rem, 4vw, 1.25rem);
+	padding-bottom: var(--mantine-spacing-lg);
 	border-radius: 0;
-	/* border: 1px solid rgba(255, 200, 150, 0.45); */
 	border-left: none;
 	border-right: none;
-	/* box-shadow: 0 12px 40px rgba(180, 90, 40, 0.12); */
-	background: linear-gradient(118deg, #fff6ec 0%, #ffe8cf 38%, #fff3e0 72%, #ffefd6 100%);
+}
+
+/* Desktop / tablet: overlapping band below hero grid */
+.statsAsideDesktop {
+	display: none;
+}
+
+@media (min-width: 48em) {
+	.statsAsideDesktop {
+		display: block;
+	}
 }
 
 @media (min-width: 48em) {
 	.statsAside {
+		/* Sit fully below hero so carousel/copy are never covered */
+		margin-top: var(--mantine-spacing-xl);
 		margin-bottom: 32px;
-		min-height: 280px;
-		padding-block: 52px;
-		padding-inline: 48px;
+		min-height: 260px;
+		padding-block: 40px 48px;
+		padding-inline: clamp(1rem, 4vw, 48px);
 	}
 }
 
 @media (min-width: 62em) {
 	.statsAside {
-		min-height: 300px;
-		padding-block: 60px;
-		padding-inline: 64px;
+		min-height: 280px;
+		padding-block: 52px 60px;
+		padding-inline: clamp(2rem, 5vw, 64px);
 	}
 }
 
 .statValue {
-	font-size: clamp(1.5rem, 4vw, 2.25rem);
+	font-size: clamp(1.35rem, 5vw, 2.25rem);
 	line-height: 1.15;
 	letter-spacing: -0.02em;
+	text-align: center;
+	width: 100%;
 }
 
 .statLabel {
 	line-height: 1.35;
 	letter-spacing: 0.06em;
+	font-size: clamp(0.65rem, 2.5vw, 0.875rem);
+	text-align: center;
+	width: 100%;
+	max-width: 14rem;
+	margin-inline: auto;
+}
+
+/* Full-bleed stat band: center grid vertically in min-height, center all copy */
+.statsAsideGrid {
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+	.statsAside {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: stretch;
+		text-align: center;
+	}
+}
+
+.statCol {
+	min-width: 0;
+	text-align: center;
 }

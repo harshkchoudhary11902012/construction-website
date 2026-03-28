@@ -10,40 +10,36 @@ import { components } from "@/slices";
 type Params = { uid: string };
 
 export default async function Page({ params }: { params: Promise<Params> }) {
-  const { uid } = await params;
-  const client = createClient();
-  const page = await client.getByUID("page", uid).catch(() => notFound());
+	const { uid } = await params;
+	const client = createClient();
+	const page = await client.getByUID("page", uid).catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+	return <SliceZone slices={page.data.slices} components={components} />;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
-  const { uid } = await params;
-  const client = createClient();
-  const page = await client.getByUID("page", uid).catch(() => notFound());
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+	const { uid } = await params;
+	const client = createClient();
+	const page = await client.getByUID("page", uid).catch(() => notFound());
 
-  return {
-    title: asText(page.data.title),
-    description: page.data.meta_description,
-    openGraph: {
-      title: page.data.meta_title ?? undefined,
-      images: [{ url: page.data.meta_image.url ?? "" }],
-    },
-  };
+	return {
+		title: asText(page.data.title),
+		description: page.data.meta_description,
+		openGraph: {
+			title: page.data.meta_title ?? undefined,
+			images: [{ url: page.data.meta_image.url ?? "" }],
+		},
+	};
 }
 
 export async function generateStaticParams() {
-  try {
-    const client = createClient();
-    const pages = await client.getAllByType("page", {
-      filters: [filter.not("my.page.uid", "home")],
-    });
-    return pages.map((page) => ({ uid: page.uid }));
-  } catch {
-    return [];
-  }
+	try {
+		const client = createClient();
+		const pages = await client.getAllByType("page", {
+			filters: [filter.not("my.page.uid", "home")],
+		});
+		return pages.map((page) => ({ uid: page.uid }));
+	} catch {
+		return [];
+	}
 }

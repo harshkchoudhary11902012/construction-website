@@ -1,0 +1,54 @@
+/* Full-width strip (footer lives outside .layout-content) */
+.bar {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: var(--mantine-spacing-md);
+}
+
+@media (min-width: 48em) {
+	.inner {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		text-align: left;
+	}
+}
+
+.copy {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+}
+
+@media (min-width: 48em) {
+	.copy {
+		width: auto;
+		flex: 1 1 auto;
+		text-align: left;
+	}
+}
+
+.links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--mantine-spacing-sm);
+	width: 100%;
+	min-width: 0;
+}
+
+@media (min-width: 48em) {
+	.links {
+		width: auto;
+		flex: 0 1 auto;
+		justify-content: flex-end;
+	}
+}

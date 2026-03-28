@@ -76,5 +76,7 @@
 		max-width: 1800px;
 		margin-inline: auto;
 		box-sizing: border-box;
+		/* Safe horizontal inset on phones / small tablets */
+		padding-inline: clamp(0.75rem, 3.5vw, 1.5rem);
 	}
 }

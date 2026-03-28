@@ -1,0 +1,102 @@
+{
+  "id": "about_us",
+  "type": "SharedSlice",
+  "name": "AboutUs",
+  "description": "About section with copy, features, phone CTA, and stacked image carousel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Carousel + about copy; stacked on mobile, two-column grid from tablet/desktop",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "ABOUT US"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Architecture That Inspires and Transforms",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "Modern architecture emphasizes simplicity and functionality...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "features": {
+          "type": "Group",
+          "config": {
+            "label": "Features",
+            "fields": {
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "Feature text",
+                  "placeholder": "Quality real estate services"
+                }
+              }
+            }
+          }
+        },
+        "phone_label": {
+          "type": "Text",
+          "config": {
+            "label": "Phone label",
+            "placeholder": "Call Us 24/7"
+          }
+        },
+        "phone_number": {
+          "type": "Text",
+          "config": {
+            "label": "Phone number",
+            "placeholder": "+01 234 56789"
+          }
+        },
+        "more_button_label": {
+          "type": "Text",
+          "config": {
+            "label": "More button label",
+            "placeholder": "More About Builda"
+          }
+        },
+        "more_link": {
+          "type": "Link",
+          "config": {
+            "label": "More button link",
+            "placeholder": "/about-us"
+          }
+        },
+        "carousel_images": {
+          "type": "Group",
+          "config": {
+            "label": "Carousel images",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": { "width": 1200, "height": 900 },
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
