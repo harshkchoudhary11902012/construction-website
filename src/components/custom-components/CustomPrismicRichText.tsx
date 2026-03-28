@@ -4,7 +4,6 @@ import type { RichTextField } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { Title, type TextProps } from "@mantine/core";
-import { rem } from "@mantine/core";
 import { CustomH1, CustomH2, CustomH3, CustomH4, CustomH5 } from "./custom-heading";
 import { CustomText } from "./custom-text";
 
@@ -15,7 +14,12 @@ type CustomPrismicRichTextProps = {
 } & TextProps;
 
 const heroHeadingStyles = {
-	h1: { fontSize: rem(64), lineHeight: 1.1, letterSpacing: "-0.02em", fontWeight: 700 },
+	h1: {
+		fontSize: "clamp(1.75rem, 2.2vw + 1rem, 4rem)",
+		lineHeight: 1.1,
+		letterSpacing: "-0.02em",
+		fontWeight: 700,
+	},
 };
 
 export function CustomPrismicRichText({
@@ -30,16 +34,27 @@ export function CustomPrismicRichText({
 	pb,
 	ml,
 	ta,
+	w,
+	maw,
+	miw,
+	className,
+	style,
 	...props
 }: CustomPrismicRichTextProps) {
 	const textProps = { fw, c, mt, mb, pt, pb, ml, ta };
+	const layoutProps = { w, maw, miw, className };
 	return (
 		<PrismicRichText
 			field={field}
 			components={{
 				heading1: ({ children }) =>
 					variant === "hero" ? (
-						<Title order={1} {...textProps} style={heroHeadingStyles.h1}>
+						<Title
+							order={1}
+							{...textProps}
+							{...layoutProps}
+							style={{ ...heroHeadingStyles.h1, ...style }}
+						>
 							{children}
 						</Title>
 					) : (
@@ -67,6 +82,11 @@ export function CustomPrismicRichText({
 						pb={pb}
 						ml={ml}
 						ta={ta}
+						w={w}
+						maw={maw}
+						miw={miw}
+						className={className}
+						style={style}
 						{...props}
 					>
 						{children}

@@ -30,10 +30,11 @@ export function Header({ navigation }: HeaderProps) {
 		<>
 			<Group
 				justify="space-between"
-				h={rem(120)}
-				px={rem(60)}
+				h={{ base: rem(96), sm: rem(120) }}
+				px={0}
 				wrap="nowrap"
-				style={{ width: "100%" }}
+				w="100%"
+				mt={5}
 			>
 				{/* Left: logo and company name */}
 				<Anchor
@@ -46,12 +47,7 @@ export function Header({ navigation }: HeaderProps) {
 					}}
 				>
 					{logo?.url ? (
-						<Image
-							src={logo.url}
-							alt={logo.alt ?? ""}
-							w={130}
-							fit="contain"
-						/>
+						<Image src={logo.url} alt={logo.alt ?? ""} w={130} fit="contain" />
 					) : (
 						<Box
 							w={rem(48)}

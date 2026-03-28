@@ -26,6 +26,36 @@
         { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop" } } } },
         { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&h=800&fit=crop" } } } },
         { "__TYPE__": "GroupItemContent", "value": { "image": { "__TYPE__": "ImageContent", "value": { "url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=800&fit=crop" } } } }
+      ],
+      "stats": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "value": "20+",
+            "label": "Years of Experience"
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "value": "270+",
+            "label": "Projects"
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "value": "85+",
+            "label": "Team members"
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "value": "1200+",
+            "label": "Clients"
+          }
+        }
       ]
     },
     "items": []

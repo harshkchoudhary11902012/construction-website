@@ -3,6 +3,8 @@ import {
   SliceSimulatorParams,
   getSlices,
 } from "@slicemachine/adapter-next/simulator";
+import type { Content } from "@prismicio/client";
+
 import { SliceZone } from "@prismicio/react";
 
 import { components } from "@/slices";
@@ -15,7 +17,10 @@ export default async function SliceSimulatorPage({
 
   return (
     <SliceSimulator>
-      <SliceZone slices={slices} components={components} />
+      <SliceZone
+        slices={slices as Content.PageDocument["data"]["slices"]}
+        components={components}
+      />
     </SliceSimulator>
   );
 }

@@ -1,0 +1,144 @@
+.heroSection {
+	overflow: visible;
+}
+
+/* Sits above the stats band so hero imagery stays on top in the overlap zone */
+.heroGridWrap {
+	position: relative;
+	z-index: 2;
+}
+
+.overflowVisible {
+	overflow: visible;
+}
+
+/* Carousel width for slide height (--hero-slide-h); gap must match .emblaTrack */
+.carouselMetrics {
+	--hero-carousel-gap: 25px;
+	--hero-slide-h: calc((100cqw - 2 * 25px) / 3 * 9 / 16 + 100px);
+
+	position: relative;
+	width: 100%;
+	container-type: inline-size;
+}
+
+.rightStack {
+	overflow: visible;
+}
+
+@media (min-width: 48em) {
+	.rightStack {
+		min-height: 100%;
+		height: 100%;
+	}
+}
+
+.carouselWrap {
+	position: relative;
+	overflow: visible;
+	z-index: 4;
+}
+
+.emblaViewport {
+	overflow: hidden;
+}
+
+.emblaTrack {
+	display: flex;
+	gap: 25px;
+}
+
+.slide {
+	flex: 0 0 calc((100% - 2 * 25px) / 3);
+	min-width: 0;
+	height: 0;
+	padding-bottom: var(--hero-slide-h);
+	border-radius: var(--mantine-radius-xl);
+	overflow: hidden;
+	position: relative;
+	border: 2px solid transparent;
+	transition: border-color 0.3s ease;
+	background-color: white;
+}
+
+.slideActive {
+	border-color: var(--mantine-color-orange-5);
+}
+
+.slideImage {
+	position: absolute;
+	inset: 0;
+}
+
+.navOverlay {
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline: -20px;
+	transform: translateY(-50%);
+	justify-content: space-between;
+	pointer-events: none;
+}
+
+.navBtn {
+	pointer-events: auto;
+	width: 40px;
+	height: 40px;
+	min-width: 40px;
+	padding: 0;
+	background-color: white;
+	color: var(--mantine-color-dark-7);
+	border: 1px solid gray;
+}
+
+.statsAside {
+	/* Break out of .layout-content (max-width: 1800px) — span full viewport */
+	position: relative;
+	z-index: 1;
+	left: 50%;
+	width: 100vw;
+	max-width: none;
+	transform: translateX(-50%);
+	box-sizing: border-box;
+	min-width: 0;
+	min-height: 300px;
+	height: 440px;
+	/* margin-top: pulled up by inline style once measured (see Hero overlap constants) */
+	margin-top: var(--mantine-spacing-lg);
+	margin-bottom: var(--mantine-spacing-xl);
+	/* padding: var(--mantine-spacing-xl) var(--mantine-spacing-md);	 */
+	padding-bottom: 50px;
+	border-radius: 0;
+	/* border: 1px solid rgba(255, 200, 150, 0.45); */
+	border-left: none;
+	border-right: none;
+	/* box-shadow: 0 12px 40px rgba(180, 90, 40, 0.12); */
+	background: linear-gradient(118deg, #fff6ec 0%, #ffe8cf 38%, #fff3e0 72%, #ffefd6 100%);
+}
+
+@media (min-width: 48em) {
+	.statsAside {
+		margin-bottom: 32px;
+		min-height: 280px;
+		padding-block: 52px;
+		padding-inline: 48px;
+	}
+}
+
+@media (min-width: 62em) {
+	.statsAside {
+		min-height: 300px;
+		padding-block: 60px;
+		padding-inline: 64px;
+	}
+}
+
+.statValue {
+	font-size: clamp(1.5rem, 4vw, 2.25rem);
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+.statLabel {
+	line-height: 1.35;
+	letter-spacing: 0.06em;
+}

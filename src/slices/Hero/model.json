@@ -58,6 +58,28 @@
               }
             }
           }
+        },
+        "stats": {
+          "type": "Group",
+          "config": {
+            "label": "Statistics",
+            "fields": {
+              "value": {
+                "type": "Text",
+                "config": {
+                  "label": "Value",
+                  "placeholder": "20+"
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": "Years of Experience"
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

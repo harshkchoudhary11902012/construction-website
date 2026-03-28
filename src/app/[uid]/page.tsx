@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { asText, filter } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
 
+import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
@@ -14,7 +14,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const client = createClient();
   const page = await client.getByUID("page", uid).catch(() => notFound());
 
-  // <SliceZone> renders the page's slices.
   return <SliceZone slices={page.data.slices} components={components} />;
 }
 

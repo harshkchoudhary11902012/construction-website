@@ -697,6 +697,31 @@ export interface HeroSliceDefaultPrimaryCarouselImagesItem {
 }
 
 /**
+ * Item in *Hero → Default → Primary → Statistics*
+ */
+export interface HeroSliceDefaultPrimaryStatsItem {
+  /**
+   * Value field in *Hero → Default → Primary → Statistics*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 20+
+   * - **API ID Path**: hero.default.primary.stats[].value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  value: prismic.KeyTextField;
+
+  /**
+   * Label field in *Hero → Default → Primary → Statistics*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Years of Experience
+   * - **API ID Path**: hero.default.primary.stats[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -757,6 +782,16 @@ export interface HeroSliceDefaultPrimary {
   carousel_images: prismic.GroupField<
     Simplify<HeroSliceDefaultPrimaryCarouselImagesItem>
   >;
+
+  /**
+   * Statistics field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.stats[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  stats: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryStatsItem>>;
 }
 
 /**
@@ -906,6 +941,7 @@ declare module "@prismicio/client" {
       FooterColumnsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryCarouselImagesItem,
+      HeroSliceDefaultPrimaryStatsItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,

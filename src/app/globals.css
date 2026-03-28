@@ -66,4 +66,15 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+
+	/**
+	 * Keeps the site centered on wide viewports / zoom-out: content width is
+	 * capped and centered. No large padding—only max-width + auto margins.
+	 */
+	.layout-content {
+		width: 100%;
+		max-width: 1800px;
+		margin-inline: auto;
+		box-sizing: border-box;
+	}
 }
