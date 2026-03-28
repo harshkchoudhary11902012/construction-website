@@ -35,6 +35,9 @@
             },
             "our_services": {
               "type": "SharedSlice"
+            },
+            "our_projects": {
+              "type": "SharedSlice"
             }
           }
         }

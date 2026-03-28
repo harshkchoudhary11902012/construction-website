@@ -1,0 +1,135 @@
+{
+  "id": "our_projects",
+  "type": "SharedSlice",
+  "name": "OurProjects",
+  "description": "Our Projects: dark project carousel + light mosaic gallery with centered CTA",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Two stacked blocks — carousel on dark, staggered images on white",
+      "primary": {
+        "carousel_eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Carousel — eyebrow",
+            "placeholder": "OUR PROJECTS"
+          }
+        },
+        "carousel_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Carousel — title",
+            "placeholder": "Browse Our Latest Projects",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "carousel_intro": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Carousel — intro",
+            "placeholder": "We are a real estate firm with over 20 years of expertise...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "carousel_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Carousel — CTA label",
+            "placeholder": "Browse All Project"
+          }
+        },
+        "carousel_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Carousel — CTA link",
+            "placeholder": "/projects"
+          }
+        },
+        "project_cards": {
+          "type": "Group",
+          "config": {
+            "label": "Carousel — project cards",
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Project title",
+                  "placeholder": "Villa Zuiderpark"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "Short project summary.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": { "width": 800, "height": 560 },
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "mosaic_eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Mosaic — eyebrow",
+            "placeholder": "WORK WITH US"
+          }
+        },
+        "mosaic_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Mosaic — title",
+            "placeholder": "Get In Touch Today To Get A Free Project Quote",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "mosaic_cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "Mosaic — CTA label",
+            "placeholder": "Get In Touch"
+          }
+        },
+        "mosaic_cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "Mosaic — CTA link",
+            "placeholder": "/contact"
+          }
+        },
+        "mosaic_photos": {
+          "type": "Group",
+          "config": {
+            "label": "Mosaic — photos (up to 6)",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": { "width": 900, "height": 700 },
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

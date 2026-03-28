@@ -219,7 +219,11 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice | AboutUsSlice | OurServicesSlice;
+type PageDocumentDataSlicesSlice =
+  | HeroSlice
+  | AboutUsSlice
+  | OurServicesSlice
+  | OurProjectsSlice;
 
 /**
  * Content for Page documents
@@ -605,6 +609,68 @@ type OurServicesSliceVariation = OurServicesSliceDefault;
 export type OurServicesSlice = prismic.SharedSlice<
   "our_services",
   OurServicesSliceVariation
+>;
+
+/**
+ * Item in *OurProjects → Default → Primary → Project cards*
+ */
+export interface OurProjectsSliceDefaultPrimaryProjectCardsItem {
+  title: prismic.KeyTextField;
+  description: prismic.RichTextField;
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *OurProjects → Default → Primary → Mosaic photos*
+ */
+export interface OurProjectsSliceDefaultPrimaryMosaicPhotosItem {
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *OurProjects → Default*
+ */
+export interface OurProjectsSliceDefaultPrimary {
+  carousel_eyebrow: prismic.KeyTextField;
+  carousel_title: prismic.RichTextField;
+  carousel_intro: prismic.RichTextField;
+  carousel_cta_label: prismic.KeyTextField;
+  carousel_cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+  project_cards: prismic.GroupField<
+    Simplify<OurProjectsSliceDefaultPrimaryProjectCardsItem>
+  >;
+  mosaic_eyebrow: prismic.KeyTextField;
+  mosaic_title: prismic.RichTextField;
+  mosaic_cta_label: prismic.KeyTextField;
+  mosaic_cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+  mosaic_photos: prismic.GroupField<
+    Simplify<OurProjectsSliceDefaultPrimaryMosaicPhotosItem>
+  >;
+}
+
+export type OurProjectsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OurProjectsSliceDefaultPrimary>,
+  never
+>;
+
+type OurProjectsSliceVariation = OurProjectsSliceDefault;
+
+export type OurProjectsSlice = prismic.SharedSlice<
+  "our_projects",
+  OurProjectsSliceVariation
 >;
 
 /**
@@ -1246,6 +1312,12 @@ declare module "@prismicio/client" {
       OurServicesSliceDefaultPrimary,
       OurServicesSliceVariation,
       OurServicesSliceDefault,
+      OurProjectsSlice,
+      OurProjectsSliceDefaultPrimaryProjectCardsItem,
+      OurProjectsSliceDefaultPrimaryMosaicPhotosItem,
+      OurProjectsSliceDefaultPrimary,
+      OurProjectsSliceVariation,
+      OurProjectsSliceDefault,
       CopyrightSlice,
       CopyrightSliceDefaultPrimary,
       CopyrightSliceVariation,

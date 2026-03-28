@@ -1,0 +1,237 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "carousel_eyebrow": "OUR PROJECTS",
+      "carousel_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": { "text": "Browse Our Latest Projects" }
+          }
+        ]
+      },
+      "carousel_intro": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "We are a real estate firm with over 20 years of expertise, and our main goal is to provide amazing locations to our partners and clients."
+            }
+          }
+        ]
+      },
+      "carousel_cta_label": "Browse All Project",
+      "carousel_cta_link": { "link_type": "Web", "url": "/projects" },
+      "project_cards": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "title": "Villa Zuiderpark",
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "A striking modern residence defined by concrete geometry and warm interior lighting."
+                  }
+                }
+              ]
+            },
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=560&fit=crop",
+                "width": 800,
+                "height": 560
+              },
+              "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=560&fit=crop",
+              "width": 800,
+              "height": 560,
+              "alt": "Project 1"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "title": "European Lard Station",
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Technical planning meets bold architecture in this mixed-use development."
+                  }
+                }
+              ]
+            },
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1487958449943-e242128e9375?w=800&h=560&fit=crop",
+                "width": 800,
+                "height": 560
+              },
+              "url": "https://images.unsplash.com/photo-1487958449943-e242128e9375?w=800&h=560&fit=crop",
+              "width": 800,
+              "height": 560,
+              "alt": "Project 2"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "title": "Dance & Music Theatre",
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "A cultural venue with sculptural form and acoustic precision."
+                  }
+                }
+              ]
+            },
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1518005020951-eccb49477700?w=800&h=560&fit=crop",
+                "width": 800,
+                "height": 560
+              },
+              "url": "https://images.unsplash.com/photo-1518005020951-eccb49477700?w=800&h=560&fit=crop",
+              "width": 800,
+              "height": 560,
+              "alt": "Project 3"
+            }
+          }
+        }
+      ],
+      "mosaic_eyebrow": "WORK WITH US",
+      "mosaic_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": { "text": "Get In Touch Today To Get A Free Project Quote" }
+          }
+        ]
+      },
+      "mosaic_cta_label": "Get In Touch",
+      "mosaic_cta_link": { "link_type": "Web", "url": "/contact" },
+      "mosaic_photos": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&h=700&fit=crop",
+                "width": 900,
+                "height": 700
+              },
+              "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&h=700&fit=crop",
+              "width": 900,
+              "height": 700,
+              "alt": "Mosaic 1"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&h=700&fit=crop",
+                "width": 900,
+                "height": 700
+              },
+              "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&h=700&fit=crop",
+              "width": 900,
+              "height": 700,
+              "alt": "Mosaic 2"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&h=700&fit=crop",
+                "width": 900,
+                "height": 700
+              },
+              "url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&h=700&fit=crop",
+              "width": 900,
+              "height": 700,
+              "alt": "Mosaic 3"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&h=700&fit=crop",
+                "width": 900,
+                "height": 700
+              },
+              "url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&h=700&fit=crop",
+              "width": 900,
+              "height": 700,
+              "alt": "Mosaic 4"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=900&h=700&fit=crop",
+                "width": 900,
+                "height": 700
+              },
+              "url": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=900&h=700&fit=crop",
+              "width": 900,
+              "height": 700,
+              "alt": "Mosaic 5"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=900&h=700&fit=crop",
+                "width": 900,
+                "height": 700
+              },
+              "url": "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=900&h=700&fit=crop",
+              "width": 900,
+              "height": 700,
+              "alt": "Mosaic 6"
+            }
+          }
+        }
+      ]
+    },
+    "items": []
+  }
+]
