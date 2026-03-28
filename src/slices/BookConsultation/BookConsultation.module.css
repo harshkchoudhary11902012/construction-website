@@ -1,0 +1,115 @@
+/* Full-bleed dark band (matches Our Projects carousel strip) */
+.band {
+	position: relative;
+	left: 50%;
+	width: 100vw;
+	max-width: none;
+	transform: translateX(-50%);
+	box-sizing: border-box;
+	background: linear-gradient(165deg, #0a0a0c 0%, #121218 48%, #0e0e12 100%);
+	color: #f8f8f9;
+	overflow: hidden;
+}
+
+.inner {
+	position: relative;
+	z-index: 1;
+}
+
+.visualWrap {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-left: clamp(0.5rem, 3vw, 2rem);
+	min-width: 0;
+}
+
+@media (min-width: 48em) {
+	.visualWrap {
+		justify-content: flex-end;
+		padding-right: clamp(1rem, 3vw, 2.5rem);
+	}
+}
+
+.decoWaves {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: clamp(18px, 4vw, 28px);
+	height: auto;
+	color: rgba(255, 255, 255, 0.45);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.imageFrame {
+	position: relative;
+	z-index: 1;
+	width: min(100%, 420px);
+	margin-inline: auto;
+	border-radius: var(--mantine-radius-xl);
+	overflow: hidden;
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+	aspect-ratio: 3 / 4;
+}
+
+.imageFrame :global(.mantine-Image-root),
+.imageFrame :global(img) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.decoRays {
+	position: absolute;
+	left: 50%;
+	bottom: -6px;
+	transform: translateX(-50%);
+	width: clamp(72px, 18vw, 100px);
+	height: clamp(28px, 7vw, 40px);
+	pointer-events: none;
+	z-index: 2;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.formStack {
+	min-width: 0;
+}
+
+.inputRoot :global(.mantine-TextInput-input),
+.inputRoot :global(.mantine-Textarea-input) {
+	background-color: rgba(255, 255, 255, 0.06) !important;
+	border-color: rgba(255, 255, 255, 0.38) !important;
+	color: #fff !important;
+	border-radius: var(--mantine-radius-md);
+	min-height: 48px;
+}
+
+.inputRoot :global(.mantine-TextInput-input::placeholder),
+.inputRoot :global(.mantine-Textarea-input::placeholder) {
+	color: rgba(255, 255, 255, 0.45);
+}
+
+.inputRoot :global(.mantine-Textarea-input) {
+	min-height: 120px;
+	padding-top: 0.85rem;
+}
+
+.selectRoot :global(.mantine-Select-input) {
+	background-color: rgba(255, 255, 255, 0.06) !important;
+	border-color: rgba(255, 255, 255, 0.38) !important;
+	color: #fff !important;
+	border-radius: var(--mantine-radius-md);
+	min-height: 48px;
+}
+
+.selectRoot :global(.mantine-Select-input::placeholder) {
+	color: rgba(255, 255, 255, 0.45);
+}
+
+.selectRoot :global(.mantine-Select-rightSection) {
+	color: rgba(255, 255, 255, 0.55);
+}

@@ -45,11 +45,11 @@ export function Header({ navigation }: HeaderProps) {
 				<Box className="layout-content" w="100%">
 					<Group
 						justify="space-between"
-						h={{ base: rem(100), sm: rem(80) }}
+						h={rem(70)}
 						px={0}
 						wrap="nowrap"
 						w="100%"
-						py={{ base: rem(6), sm: rem(4) }}
+						py={rem(4)}
 						gap="md"
 					>
 						{/* Left: logo and company name */}

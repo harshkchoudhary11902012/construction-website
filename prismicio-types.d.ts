@@ -223,7 +223,8 @@ type PageDocumentDataSlicesSlice =
   | HeroSlice
   | AboutUsSlice
   | OurServicesSlice
-  | OurProjectsSlice;
+  | OurProjectsSlice
+  | BookConsultationSlice;
 
 /**
  * Content for Page documents
@@ -671,6 +672,47 @@ type OurProjectsSliceVariation = OurProjectsSliceDefault;
 export type OurProjectsSlice = prismic.SharedSlice<
   "our_projects",
   OurProjectsSliceVariation
+>;
+
+/**
+ * Item in *BookConsultation → Default → Primary → Service options*
+ */
+export interface BookConsultationSliceDefaultPrimaryServiceOptionsItem {
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *BookConsultation → Default*
+ */
+export interface BookConsultationSliceDefaultPrimary {
+  title: prismic.RichTextField;
+  side_image: prismic.ImageField<never>;
+  name_placeholder: prismic.KeyTextField;
+  email_placeholder: prismic.KeyTextField;
+  service_placeholder: prismic.KeyTextField;
+  message_placeholder: prismic.KeyTextField;
+  submit_label: prismic.KeyTextField;
+  service_options: prismic.GroupField<
+    Simplify<BookConsultationSliceDefaultPrimaryServiceOptionsItem>
+  >;
+}
+
+export type BookConsultationSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BookConsultationSliceDefaultPrimary>,
+  never
+>;
+
+type BookConsultationSliceVariation = BookConsultationSliceDefault;
+
+/**
+ * BookConsultation Shared Slice
+ *
+ * - **API ID**: `book_consultation`
+ */
+export type BookConsultationSlice = prismic.SharedSlice<
+  "book_consultation",
+  BookConsultationSliceVariation
 >;
 
 /**
@@ -1318,6 +1360,11 @@ declare module "@prismicio/client" {
       OurProjectsSliceDefaultPrimary,
       OurProjectsSliceVariation,
       OurProjectsSliceDefault,
+      BookConsultationSlice,
+      BookConsultationSliceDefaultPrimaryServiceOptionsItem,
+      BookConsultationSliceDefaultPrimary,
+      BookConsultationSliceVariation,
+      BookConsultationSliceDefault,
       CopyrightSlice,
       CopyrightSliceDefaultPrimary,
       CopyrightSliceVariation,

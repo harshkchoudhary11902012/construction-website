@@ -38,6 +38,9 @@
             },
             "our_projects": {
               "type": "SharedSlice"
+            },
+            "book_consultation": {
+              "type": "SharedSlice"
             }
           }
         }

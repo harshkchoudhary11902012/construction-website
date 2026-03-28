@@ -1,0 +1,48 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": { "text": "Book a consultation" }
+          }
+        ]
+      },
+      "side_image": {
+        "__TYPE__": "ImageContent",
+        "url": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&h=1200&fit=crop",
+        "alt": "Modern architecture detail",
+        "origin": {
+          "id": "mock",
+          "url": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&h=1200&fit=crop",
+          "width": 900,
+          "height": 1200
+        }
+      },
+      "name_placeholder": "Your Name*",
+      "email_placeholder": "Your Email*",
+      "service_placeholder": "Select Service Type",
+      "message_placeholder": "Type Your Message",
+      "submit_label": "Submit Message",
+      "service_options": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "label": "Commercial Construction" }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "label": "Residential Projects" }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": { "label": "Renovation & Remodeling" }
+        }
+      ]
+    },
+    "items": []
+  }
+]

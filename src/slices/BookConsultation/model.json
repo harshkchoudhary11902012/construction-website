@@ -1,0 +1,89 @@
+{
+  "id": "book_consultation",
+  "type": "SharedSlice",
+  "name": "BookConsultation",
+  "description": "Dark consultation band with side image and contact form",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Book a consultation — image left, form right",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Book a consultation",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "side_image": {
+          "type": "Image",
+          "config": {
+            "label": "Side image",
+            "constraint": {
+              "width": 1200,
+              "height": 1600
+            },
+            "thumbnails": []
+          }
+        },
+        "name_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Name field placeholder",
+            "placeholder": "Your Name*"
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email field placeholder",
+            "placeholder": "Your Email*"
+          }
+        },
+        "service_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Service select placeholder",
+            "placeholder": "Select Service Type"
+          }
+        },
+        "message_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Message textarea placeholder",
+            "placeholder": "Type Your Message"
+          }
+        },
+        "submit_label": {
+          "type": "Text",
+          "config": {
+            "label": "Submit button label",
+            "placeholder": "Submit Message"
+          }
+        },
+        "service_options": {
+          "type": "Group",
+          "config": {
+            "label": "Service dropdown options",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Option label",
+                  "placeholder": "Commercial Construction"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}
