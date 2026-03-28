@@ -219,7 +219,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSlice | AboutUsSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | AboutUsSlice | OurServicesSlice;
 
 /**
  * Content for Page documents
@@ -459,6 +459,152 @@ type AboutUsSliceVariation = AboutUsSliceDefault;
 export type AboutUsSlice = prismic.SharedSlice<
   "about_us",
   AboutUsSliceVariation
+>;
+
+/**
+ * Item in *OurServices → Default → Primary → Services*
+ */
+export interface OurServicesSliceDefaultPrimaryServicesItem {
+  /**
+   * Icon field in *OurServices → Default → Primary → Services*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Pick an icon style
+   * - **Default Value**: blueprint
+   * - **API ID Path**: our_services.default.primary.services[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "blueprint" | "frame" | "home" | "building" | "hammer",
+    "filled"
+  >;
+
+  /**
+   * Service title field in *OurServices → Default → Primary → Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Architectural Design
+   * - **API ID Path**: our_services.default.primary.services[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *OurServices → Default → Primary → Services*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Short paragraph about this service.
+   * - **API ID Path**: our_services.default.primary.services[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *OurServices → Default → Primary → Services*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.services[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *OurServices → Default*
+ */
+export interface OurServicesSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: OUR SERVICES
+   * - **API ID Path**: our_services.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Title field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Service We're Offering to You!
+   * - **API ID Path**: our_services.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Intro text field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Modern architecture is a design approach...
+   * - **API ID Path**: our_services.default.primary.intro
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  intro: prismic.RichTextField;
+
+  /**
+   * CTA button label field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Browse All Services
+   * - **API ID Path**: our_services.default.primary.cta_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA button link field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: /services
+   * - **API ID Path**: our_services.default.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Services field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.services[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  services: prismic.GroupField<
+    Simplify<OurServicesSliceDefaultPrimaryServicesItem>
+  >;
+}
+
+/**
+ * Default variation for OurServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Three-column service grid in a rounded panel
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OurServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OurServicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *OurServices*
+ */
+type OurServicesSliceVariation = OurServicesSliceDefault;
+
+/**
+ * OurServices Shared Slice
+ *
+ * - **API ID**: `our_services`
+ * - **Description**: Our Services section with repeatable cards
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OurServicesSlice = prismic.SharedSlice<
+  "our_services",
+  OurServicesSliceVariation
 >;
 
 /**
@@ -1095,6 +1241,11 @@ declare module "@prismicio/client" {
       AboutUsSliceDefaultPrimary,
       AboutUsSliceVariation,
       AboutUsSliceDefault,
+      OurServicesSlice,
+      OurServicesSliceDefaultPrimaryServicesItem,
+      OurServicesSliceDefaultPrimary,
+      OurServicesSliceVariation,
+      OurServicesSliceDefault,
       CopyrightSlice,
       CopyrightSliceDefaultPrimary,
       CopyrightSliceVariation,

@@ -1,0 +1,98 @@
+{
+  "id": "our_services",
+  "type": "SharedSlice",
+  "name": "OurServices",
+  "description": "Our Services — eyebrow, title, intro, CTA, and repeatable service cards with icon, copy, and image",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Three-column service grid in a rounded panel",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "OUR SERVICES"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Service We're Offering to You!",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "intro": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Intro text",
+            "placeholder": "Modern architecture is a design approach that emphasizes simplicity, functionality, and innovation.",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "cta_label": {
+          "type": "Text",
+          "config": {
+            "label": "CTA button label",
+            "placeholder": "Browse All Services"
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA button link",
+            "placeholder": "/services"
+          }
+        },
+        "services": {
+          "type": "Group",
+          "config": {
+            "label": "Services",
+            "fields": {
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": "Pick an icon style",
+                  "options": ["blueprint", "frame", "home", "building", "hammer"],
+                  "default_value": "blueprint"
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Service title",
+                  "placeholder": "Architectural Design"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "Short paragraph about this service.",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": { "width": 900, "height": 600 },
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

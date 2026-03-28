@@ -32,6 +32,9 @@
             },
             "about_us": {
               "type": "SharedSlice"
+            },
+            "our_services": {
+              "type": "SharedSlice"
             }
           }
         }

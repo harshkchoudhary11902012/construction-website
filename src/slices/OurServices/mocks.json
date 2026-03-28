@@ -1,0 +1,124 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "eyebrow": "OUR SERVICES",
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": { "text": "Service We're Offering to You!" }
+          }
+        ]
+      },
+      "intro": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Modern architecture is a design approach that emphasize simplicity, functionality, and innovation. It moves away from excessive."
+            }
+          }
+        ]
+      },
+      "cta_label": "Browse All Services",
+      "cta_link": { "link_type": "Web", "url": "/services" },
+      "services": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "icon": "blueprint",
+            "title": "Architectural Design",
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Architects maintain communication with clients throughout the project, providing updates, and management of your properties."
+                  }
+                }
+              ]
+            },
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1487958449943-e242128e9375?w=900&h=600&fit=crop",
+                "width": 900,
+                "height": 600
+              },
+              "url": "https://images.unsplash.com/photo-1487958449943-e242128e9375?w=900&h=600&fit=crop",
+              "width": 900,
+              "height": 600,
+              "alt": "Architecture"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "icon": "frame",
+            "title": "Interior Design",
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Architects maintain communication with clients throughout the project, providing updates, and management of your properties."
+                  }
+                }
+              ]
+            },
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&h=600&fit=crop",
+                "width": 900,
+                "height": 600
+              },
+              "url": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&h=600&fit=crop",
+              "width": 900,
+              "height": 600,
+              "alt": "Interior"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "icon": "home",
+            "title": "Renovation & Restoration",
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Architects maintain communication with clients throughout the project, providing updates, and management of your properties."
+                  }
+                }
+              ]
+            },
+            "image": {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=600&fit=crop",
+                "width": 900,
+                "height": 600
+              },
+              "url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=600&fit=crop",
+              "width": 900,
+              "height": 600,
+              "alt": "Renovation"
+            }
+          }
+        }
+      ]
+    },
+    "items": []
+  }
+]
