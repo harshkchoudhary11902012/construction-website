@@ -24,6 +24,8 @@ import classes from "./ProjectDetails.module.css";
 type ProjectDetailsPrimary = {
 	hero_image?: unknown;
 	banner_image?: unknown;
+	hero_title?: RichTextField;
+	hero_breadcrumb?: RichTextField;
 	project_title?: unknown;
 	project_category?: string | null;
 	project_intro?: unknown;
@@ -116,12 +118,8 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({ slice }) => {
 						justifyContent: "center",
 					}}
 				>
-					<Title order={1} c="white" mb={8}>
-						Project Details
-					</Title>
-					<Text c="gray.3" fw={500}>
-						Home -&gt; Projects -&gt; Project Details
-					</Text>
+					<CustomPrismicRichText field={p.hero_title} c="white" mb={8} />
+					<CustomPrismicRichText field={p.hero_breadcrumb} body="body1" c="gray.3" fw={500} />
 				</Container>
 			</Box>
 			<Box py={{ base: 36, md: 56 }}>

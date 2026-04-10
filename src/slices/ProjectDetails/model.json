@@ -27,6 +27,24 @@
             "thumbnails": []
           }
         },
+        "hero_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Banner title",
+            "placeholder": "Project Details",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "hero_breadcrumb": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Banner breadcrumb",
+            "placeholder": "Home -> Projects -> Project Details",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
         "project_title": {
           "type": "StructuredText",
           "config": { "label": "Project title", "single": "heading1", "allowTargetBlank": true }

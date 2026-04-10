@@ -2,22 +2,25 @@
 
 import { type FC, useMemo } from "react";
 import Link from "next/link";
+import type { RichTextField } from "@prismicio/client";
 import { type SliceComponentProps } from "@prismicio/react";
-import { Box, Card, Container, Group, Image, SimpleGrid, Text, Title } from "@mantine/core";
+import { Box, Card, Container, Group, Image, SimpleGrid, Text } from "@mantine/core";
 import { IconArrowUpRight } from "@tabler/icons-react";
+import { CustomPrismicRichText } from "@/components/custom-components/CustomPrismicRichText";
 import classes from "./ProjectsCatalog.module.css";
 
+type ProjectRow = {
+	title?: string | null;
+	category?: string | null;
+	image: unknown;
+	link?: unknown;
+};
+
 type ProjectsCatalogPrimary = {
-	hero_title?: unknown;
-	hero_breadcrumb?: unknown;
+	hero_title: RichTextField;
+	hero_breadcrumb: RichTextField;
 	hero_background?: unknown;
-	projects_per_page?: number | null;
-	projects?: Array<{
-		title?: string | null;
-		category?: string | null;
-		image?: unknown;
-		link?: unknown;
-	}> | null;
+	projects?: ProjectRow[] | null;
 };
 
 type ProjectsCatalogProps = SliceComponentProps;
@@ -53,38 +56,25 @@ const getLinkUrl = (value: unknown): string | undefined =>
 	return undefined;
 };
 
-const readRichTextAsString = (value: unknown, fallback: string) => {
-	if (!Array.isArray(value)) return fallback;
-	const text = value
-		.map((node) => {
-			if (typeof node !== "object" || node === null || !("content" in node)) return "";
-			const content = (node as { content?: unknown }).content;
-			if (typeof content === "object" && content !== null && "text" in content) {
-				const t = (content as { text?: unknown }).text;
-				return typeof t === "string" ? t : "";
-			}
-			return "";
-		})
-		.join(" ")
-		.trim();
-	return text || fallback;
-};
-
 const ProjectsCatalog: FC<ProjectsCatalogProps> = ({ slice, context }) => {
-	const p = ((slice as { primary?: ProjectsCatalogPrimary }).primary ?? {}) as ProjectsCatalogPrimary;
+	const { hero_title, hero_breadcrumb, hero_background, projects: projectRows } =
+		(slice as unknown as { primary: ProjectsCatalogPrimary }).primary;
 	const currentPage = (context as { currentPage?: number } | undefined)?.currentPage ?? 1;
 
 	const projects = useMemo<ProjectItem[]>(() => {
-		const rows = p.projects ?? [];
+		const rows = projectRows ?? [];
 		return rows
 			.filter((row) => hasImageUrl(row.image))
-			.map((row) => ({
-				title: typeof row.title === "string" ? row.title : "",
-				category: typeof row.category === "string" ? row.category : "",
-				image: (row.image as { url: string }).url,
-				link: getLinkUrl(row.link) || "",
-			}));
-	}, [p.projects]);
+			.map((row) => {
+				const image = row.image as { url: string };
+				return {
+					title: typeof row.title === "string" ? row.title : "",
+					category: typeof row.category === "string" ? row.category : "",
+					image: image.url,
+					link: getLinkUrl(row.link) || "",
+				};
+			});
+	}, [projectRows]);
 
 	const perPage = PROJECTS_PER_PAGE;
 	const totalPages = Math.max(1, Math.ceil(projects.length / perPage));
@@ -92,10 +82,7 @@ const ProjectsCatalog: FC<ProjectsCatalogProps> = ({ slice, context }) => {
 	const startIndex = (safePage - 1) * perPage;
 	const visibleProjects = projects.slice(startIndex, startIndex + perPage);
 
-	const heroTitle = readRichTextAsString(p.hero_title, "");
-	const heroCrumb = readRichTextAsString(p.hero_breadcrumb, "");
-
-	const heroBg = hasImageUrl(p.hero_background) ? p.hero_background.url : "";
+	const heroBg = hasImageUrl(hero_background) ? hero_background.url : "";
 
 	return (
 		<>
@@ -112,12 +99,13 @@ const ProjectsCatalog: FC<ProjectsCatalogProps> = ({ slice, context }) => {
 						justifyContent: "center",
 					}}
 				>
-					<Title order={1} c="white" mb={8}>
-						{heroTitle}
-					</Title>
-					<Text c="gray.3" fw={500}>
-						{heroCrumb}
-					</Text>
+					<CustomPrismicRichText field={hero_title} c="white" mb={8} />
+					<CustomPrismicRichText
+						field={hero_breadcrumb}
+						body="body1"
+						c="gray.3"
+						fw={500}
+					/>
 				</Container>
 			</Box>
 

@@ -25,6 +25,14 @@
           "height": 1067
         }
       },
+      "hero_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "heading1", "content": { "text": "Project Details" } }]
+      },
+      "hero_breadcrumb": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "paragraph", "content": { "text": "Home -> Projects -> Project Details" } }]
+      },
       "project_title": {
         "__TYPE__": "StructuredTextContent",
         "value": [{ "type": "heading1", "content": { "text": "Vehicle Manufacturing" } }]
