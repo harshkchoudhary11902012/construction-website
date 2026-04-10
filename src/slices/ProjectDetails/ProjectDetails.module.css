@@ -1,0 +1,133 @@
+.detailsRoot :global(h1) {
+	font-size: clamp(2rem, 3.6vw, 3.15rem);
+	line-height: 1.12;
+}
+
+.detailsRoot :global(h2) {
+	font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+	line-height: 1.18;
+}
+
+.pageBanner {
+	position: relative;
+	width: 100vw;
+	margin-inline: calc(50% - 50vw);
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+.pageBannerOverlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(12, 14, 18, 0.78) 0%,
+		rgba(12, 14, 18, 0.56) 46%,
+		rgba(12, 14, 18, 0.35) 100%
+	);
+}
+
+.heroWrap {
+	position: relative;
+}
+
+.heroImage {
+	border-radius: var(--mantine-radius-xl);
+	overflow: hidden;
+}
+
+.heroImage :global(img),
+.heroImage :global(.mantine-Image-root) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.infoCard {
+	background: #f4eadb;
+	border-radius: var(--mantine-radius-xl);
+	padding: 1.1rem 1.1rem;
+}
+
+@media (min-width: 62em) {
+	.infoCard {
+		position: absolute;
+		right: 0;
+		bottom: -250px;
+		width: min(360px, 32vw);
+	}
+}
+
+.metaRow {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	padding: 0.7rem 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.metaRow:last-child {
+	border-bottom: none;
+}
+
+.metaIcon {
+	width: 30px;
+	height: 30px;
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+	background: rgba(255, 255, 255, 0.7);
+	color: var(--mantine-color-orange-6);
+	flex-shrink: 0;
+}
+
+.helpCard {
+	background: #0d0f13;
+	color: #fff;
+	border-radius: var(--mantine-radius-xl);
+	padding: 1.35rem 1.2rem;
+	text-align: center;
+}
+
+.infoTitle {
+	font-size: clamp(1.15rem, 1.2vw + 0.85rem, 1.45rem);
+}
+
+.helpTitle {
+	font-size: clamp(1.35rem, 1.3vw + 0.9rem, 1.8rem);
+	line-height: 1.2;
+}
+
+.chip {
+	font-size: 0.78rem;
+	color: var(--mantine-color-orange-7);
+}
+
+.sectionImage {
+	border-radius: var(--mantine-radius-lg);
+	overflow: hidden;
+}
+
+.sectionImage :global(img),
+.sectionImage :global(.mantine-Image-root) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.challengeImage :global(img),
+.challengeImage :global(.mantine-Image-root) {
+	object-fit: contain;
+	object-position: center center;
+	background: #fff;
+}
+
+.pagerLink {
+	text-decoration: none;
+	color: var(--mantine-color-dark-7);
+	font-weight: 500;
+	font-size: 0.9rem;
+}

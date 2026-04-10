@@ -1,0 +1,104 @@
+{
+  "id": "project_details",
+  "type": "SharedSlice",
+  "name": "ProjectDetails",
+  "description": "Individual project details layout",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Project detail layout with image, info card, sections, and pager",
+      "primary": {
+        "hero_image": {
+          "type": "Image",
+          "config": {
+            "label": "Hero image",
+            "constraint": { "width": 1800, "height": 1080 },
+            "thumbnails": []
+          }
+        },
+        "banner_image": {
+          "type": "Image",
+          "config": {
+            "label": "Banner image",
+            "constraint": { "width": 1800, "height": 560 },
+            "thumbnails": []
+          }
+        },
+        "project_title": {
+          "type": "StructuredText",
+          "config": { "label": "Project title", "single": "heading1", "allowTargetBlank": true }
+        },
+        "project_category": {
+          "type": "Text",
+          "config": { "label": "Project category", "placeholder": "Building, Construction" }
+        },
+        "project_intro": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Project intro",
+            "multi": "paragraph,strong,em,hyperlink",
+            "allowTargetBlank": true
+          }
+        },
+        "info_title": { "type": "Text", "config": { "label": "Info card title", "placeholder": "Project Information" } },
+        "client_name": { "type": "Text", "config": { "label": "Client name", "placeholder": "Josefin H. Smith" } },
+        "category_label": { "type": "Text", "config": { "label": "Category label", "placeholder": "Branding Marketing" } },
+        "project_date": { "type": "Text", "config": { "label": "Project date", "placeholder": "25 July, 2025" } },
+        "address": { "type": "Text", "config": { "label": "Address", "placeholder": "258 Dancing Street, USA" } },
+        "help_title": { "type": "Text", "config": { "label": "Help card title", "placeholder": "Need Help? Call Here" } },
+        "help_phone": { "type": "Text", "config": { "label": "Help phone", "placeholder": "+256 6987 2564" } },
+        "help_button_label": { "type": "Text", "config": { "label": "Help button label", "placeholder": "Get a Quote" } },
+        "help_button_link": { "type": "Link", "config": { "label": "Help button link", "placeholder": "/contact" } },
+        "confidence_title": {
+          "type": "StructuredText",
+          "config": { "label": "Confidence section title", "single": "heading2", "allowTargetBlank": true }
+        },
+        "confidence_image": {
+          "type": "Image",
+          "config": { "label": "Confidence image", "constraint": { "width": 900, "height": 700 }, "thumbnails": [] }
+        },
+        "confidence_points": {
+          "type": "Group",
+          "config": {
+            "label": "Confidence bullet points",
+            "fields": {
+              "point": {
+                "type": "Text",
+                "config": { "label": "Point", "placeholder": "Positive feedback from satisfied clients." }
+              }
+            }
+          }
+        },
+        "challenge_title": {
+          "type": "StructuredText",
+          "config": { "label": "Challenge section title", "single": "heading2", "allowTargetBlank": true }
+        },
+        "challenge_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Challenge section text",
+            "multi": "paragraph,strong,em,hyperlink",
+            "allowTargetBlank": true
+          }
+        },
+        "challenge_images": {
+          "type": "Group",
+          "config": {
+            "label": "Challenge images",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": { "label": "Image", "constraint": { "width": 900, "height": 700 }, "thumbnails": [] }
+              }
+            }
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

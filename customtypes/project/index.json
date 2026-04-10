@@ -1,7 +1,7 @@
 {
-  "id": "page",
-  "label": "Page",
-  "format": "page",
+  "id": "project",
+  "label": "Project",
+  "format": "custom",
   "repeatable": true,
   "status": true,
   "json": {
@@ -10,16 +10,15 @@
         "type": "UID",
         "config": {
           "label": "UID",
-          "placeholder": ""
+          "placeholder": "vehicle-manufacturing"
         }
       },
       "title": {
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "heading1"
+          "single": "heading1",
+          "allowTargetBlank": true
         }
       },
       "slices": {
@@ -27,22 +26,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            },
-            "about_us": {
-              "type": "SharedSlice"
-            },
-            "our_services": {
-              "type": "SharedSlice"
-            },
-            "our_projects": {
-              "type": "SharedSlice"
-            },
-            "projects_catalog": {
-              "type": "SharedSlice"
-            },
-            "book_consultation": {
+            "project_details": {
               "type": "SharedSlice"
             }
           }
@@ -54,14 +38,14 @@
         "type": "Text",
         "config": {
           "label": "Meta Title",
-          "placeholder": "A title of the page used for social media and search engines"
+          "placeholder": "Vehicle Manufacturing | Projects"
         }
       },
       "meta_description": {
         "type": "Text",
         "config": {
           "label": "Meta Description",
-          "placeholder": "A brief summary of the page"
+          "placeholder": "Project description for search engines"
         }
       },
       "meta_image": {

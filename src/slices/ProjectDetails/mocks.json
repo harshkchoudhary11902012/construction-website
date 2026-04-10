@@ -1,0 +1,111 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "hero_image": {
+        "__TYPE__": "ImageContent",
+        "url": "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1800",
+        "alt": "Project hero",
+        "origin": {
+          "id": "hero",
+          "url": "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1800",
+          "width": 1800,
+          "height": 1200
+        }
+      },
+      "banner_image": {
+        "__TYPE__": "ImageContent",
+        "url": "https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "alt": "Project details banner",
+        "origin": {
+          "id": "banner",
+          "url": "https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "width": 1600,
+          "height": 1067
+        }
+      },
+      "project_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "heading1", "content": { "text": "Vehicle Manufacturing" } }]
+      },
+      "project_category": "Building, Construction",
+      "project_intro": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "paragraph", "content": { "text": "Project intro text from Prismic." } }]
+      },
+      "info_title": "Project Information",
+      "client_name": "Josefin H. Smith",
+      "category_label": "Branding Marketing",
+      "project_date": "25 July, 2025",
+      "address": "258 Dancing Street, USA",
+      "help_title": "Need Help? Call Here",
+      "help_phone": "+256 6987 2564",
+      "help_button_label": "Get a Quote",
+      "help_button_link": { "link_type": "Web", "url": "/contact" },
+      "confidence_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "heading2", "content": { "text": "Constructing with Confidence" } }]
+      },
+      "confidence_image": {
+        "__TYPE__": "ImageContent",
+        "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=900",
+        "alt": "Confidence image",
+        "origin": {
+          "id": "conf",
+          "url": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=900",
+          "width": 900,
+          "height": 600
+        }
+      },
+      "confidence_points": [
+        { "__TYPE__": "GroupItemContent", "value": { "point": "Positive feedback from satisfied clients." } },
+        { "__TYPE__": "GroupItemContent", "value": { "point": "Industrial: Factories, warehouses." } },
+        { "__TYPE__": "GroupItemContent", "value": { "point": "Core values (quality, integrity, innovation)." } }
+      ],
+      "challenge_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "heading2", "content": { "text": "The challenge of project" } }]
+      },
+      "challenge_text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [{ "type": "paragraph", "content": { "text": "Challenge section text from Prismic." } }]
+      },
+      "challenge_images": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "url": "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=900",
+              "alt": "Challenge image 1",
+              "origin": {
+                "id": "c1",
+                "url": "https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=900",
+                "width": 900,
+                "height": 600
+              }
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "url": "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=900",
+              "alt": "Challenge image 2",
+              "origin": {
+                "id": "c2",
+                "url": "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=900",
+                "width": 900,
+                "height": 600
+              }
+            }
+          }
+        }
+      ]
+    },
+    "items": []
+  }
+]

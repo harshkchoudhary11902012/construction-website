@@ -1,0 +1,98 @@
+{
+  "id": "projects_catalog",
+  "type": "SharedSlice",
+  "name": "ProjectsCatalog",
+  "description": "Projects page hero and paginated projects grid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "1",
+      "description": "Hero section and project cards with pagination",
+      "primary": {
+        "hero_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero title",
+            "placeholder": "Projects",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "hero_breadcrumb": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Hero breadcrumb",
+            "placeholder": "Home -> Projects",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "hero_background": {
+          "type": "Image",
+          "config": {
+            "label": "Hero background image",
+            "constraint": {
+              "width": 1600,
+              "height": 560
+            },
+            "thumbnails": []
+          }
+        },
+        "projects_per_page": {
+          "type": "Number",
+          "config": {
+            "label": "Projects per page",
+            "min": 1,
+            "max": 24,
+            "step": 1,
+            "placeholder": "6"
+          }
+        },
+        "projects": {
+          "type": "Group",
+          "config": {
+            "label": "Projects",
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Vehicle Manufacturing"
+                }
+              },
+              "category": {
+                "type": "Text",
+                "config": {
+                  "label": "Category",
+                  "placeholder": "Building, Construction"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {
+                    "width": 1200,
+                    "height": 800
+                  },
+                  "thumbnails": []
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Project link",
+                  "placeholder": "/projects/project-slug"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

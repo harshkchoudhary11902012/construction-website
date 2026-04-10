@@ -1,0 +1,111 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "hero_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Projects"
+            }
+          }
+        ]
+      },
+      "hero_breadcrumb": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Home -> Projects"
+            }
+          }
+        ]
+      },
+      "hero_background": {
+        "__TYPE__": "ImageContent",
+        "url": "https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "alt": "Projects hero background",
+        "origin": {
+          "id": "main-image",
+          "url": "https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1600",
+          "width": 1600,
+          "height": 1067
+        }
+      },
+      "projects_per_page": 6,
+      "projects": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "title": "Vehicle Manufacturing",
+            "category": "Building, Construction",
+            "image": {
+              "__TYPE__": "ImageContent",
+              "url": "https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1200",
+              "alt": "Vehicle manufacturing project",
+              "origin": {
+                "id": "p1",
+                "url": "https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "width": 1200,
+                "height": 800
+              }
+            },
+            "link": {
+              "link_type": "Web",
+              "url": "/projects"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "title": "Hari Alena Tower",
+            "category": "Building, Construction",
+            "image": {
+              "__TYPE__": "ImageContent",
+              "url": "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+              "alt": "Tower project",
+              "origin": {
+                "id": "p2",
+                "url": "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "width": 1200,
+                "height": 800
+              }
+            },
+            "link": {
+              "link_type": "Web",
+              "url": "/projects"
+            }
+          }
+        },
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": {
+            "title": "Crystal Palace Building",
+            "category": "Building, Construction",
+            "image": {
+              "__TYPE__": "ImageContent",
+              "url": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+              "alt": "Crystal palace project",
+              "origin": {
+                "id": "p3",
+                "url": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "width": 1200,
+                "height": 800
+              }
+            },
+            "link": {
+              "link_type": "Web",
+              "url": "/projects"
+            }
+          }
+        }
+      ]
+    },
+    "items": []
+  }
+]
